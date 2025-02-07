@@ -1,57 +1,104 @@
 # Application Package Definition
 
-This section addresses how an application is packaged by the “Application Developer” who has implemented the application and aims to provide it to Margo-conformant systems. An application aggregates one or more [OCI Containers](https://github.com/opencontainers). The **application package definition** is made available in an [application registry](./workload-orch-to-app-reg-interaction.md), while the referenced OCI artifacts are stored in a remote or [local registry](local-registries.md).  
+This section defines the application package provided by an “Application Developer” who has implemented the application and aims to provide it to Margo-conformant systems. The application package comprises:
 
-The application package comprises:
+- The **application description**: a YAML document (type = `ApplicationDescription`), which is stored in a file (e.g., `margo.yaml`) and contains information about the application's [metadata](#metadata-attributes) (e.g., description, icon, release notes, license file, etc.), application supported [deployment configurations](#deploymentprofile-attributes) (e.g,  Helm charts, Docker Compose package), and [configurable application parameters](#defining-configurable-application-parameters).
+- The **resources**, which are additional information about the application (e.g., manual, icon, release notes, license file, etc.) that can be provided in an application catalog or marketplace.
 
-- The **application description** file `margo.yaml`, which contains information about the application's marketing details (e.g., description, icon, release notes, license file, etc.), resource requirements, required input parameters, and application's supported deployment configurations (e.g,  Helm charts, docker-compose package).
-- The **application resources** which can be used to display additional information about the application in an application catalog or marketplace based on the application's defined metadata (e.g., description, icon, release notes, license file, etc.).
+The application package has the following file/folder structure:
 
-    > **Note**  
-    > Application Marketplaces are out of scope for Margo. The exact requirements of the Marketing Material shall be defined by the Application Marketplace beyond outlined mandatory content.
+```yaml
+/                           # REQUIRED top-level directory 
+└── application description # REQUIRED a YAML document of type ApplicationDescription stored in a file  (e.g., 'margo.yaml')
+└── resources               # OPTIONAL folder with application resources (e.g., icon, license file, release notes) that can be displayed in an application catalog
+```
 
-The application package's deployment configuration SHALL be defined as Helm Charts AND/OR a Docker Compose packages.
+An application aggregates one or more [OCI Containers](https://github.com/opencontainers). While the application package is made available in an [application registry](./workload-orch-to-app-reg-interaction.md), the referenced OCI artifacts are stored in a remote or [local registry](../local-registries). 
 
-- To target devices running Kubernetes applications must be packaged as helm charts using [Helm V3](https://helm.sh/).
-- To target devices deploying applications using Docker Compose files you must create a tarball file containing the application's docker-compose.yml file and any additional artifacts referenced by the docker compose file (e.g., configuration files, environment variable files, etc.). It is highly recommend to digitally sign this package. When digitally signing the package PGP MUST be used.
+The following diagram shows the typical workflow for the usage of the application description:
+```mermaid
+---
+config:
+    layout: elk
+
+
+---
+sequenceDiagram
+    actor EndUser as End User
+    participant frontend as Workload Fleet Manager Frontend
+    participant fleetmgr as Workload Fleet Manager
+    participant registry as Application Registry
+        
+    autonumber
+    
+    EndUser->>frontend: Visits Application Catalog
+    frontend->>fleetmgr: Get list of available workloads (=Apps)
+    
+    alt
+      fleetmgr ->> registry: Get 'application description' from each known application registry.
+    else
+      fleetmgr ->> fleetmgr: Get cached 'application description' for all cached applications.
+    end
+    fleetmgr->>frontend: Return list of 'application description's
+    
+    frontend ->> frontend: Read all 'application description's -> 'metadata' element
+    frontend ->> EndUser: Show UI with list of applications
+    EndUser->>frontend: Select workload (=App) to install
+    frontend ->> frontend: Read 'application description' -> 'configuration' element
+    frontend -->> EndUser: Show UI to fill App configuration
+    EndUser ->> frontend: Answer configurable questions to be applied to workload(s)
+    frontend ->> fleetmgr: Create 'ApplicationDeployment' definition
+    
+```
+
+1. An end user visits an application catalog (or marketplace) of the Workload Fleet Manager Frontend.
+2. This frontend requests all workloads from the Workload Fleet Manager.
+3. *Either*: the Workload Fleet Manager requests all application descriptions from each known  Application Registry.
+4. *Or*: the Workload Fleet Manager maintains a cache of application descriptions and services the request from there.
+5. The Workload Fleet Manager returns the retrieved documents of application descriptions to the frontend.
+6. The frontend parses the [metadata](#metadata-attributes) element of all received application description documents.
+7. The frontend presents the parsed metadata in a UI to the end user.
+8. The end user selects the workload to be installed.
+9. The frontend parses the [configuration](#dconfiguration-attributes) element of the selected application description.
+10. The frontend presents the parsed configuration to the user.
+11. The end user fills out the [configurable application parameters](#defining-configurable-application-parameters) to be applied to the workload.
+12. The frontend creates an `ApplicationDeployment` definition (from the `ApplicationDescription` and the filled out parameters) and sends it to the Workload Fleet Manager, which executes it as the [desired state](../../margo-api-reference/workload-api/desired-state-api/desired-state/).
+
+> **Note**  
+> Application catalogs or marketplaces are out of scope for Margo. The exact requirements of the marketing material shall be defined by the application marketplace beyond outlined mandatory content.
+
+The [deployment profiles](#deploymentprofile-attributes) specified in the application description SHALL be defined as Helm Charts AND/OR Docker Compose components.
+
+- To target devices, which run Kubernetes, applications must be packaged as Helm charts using [Helm V3](https://helm.sh/).
+- To target devices, which deploy applications using Docker Compose, applications must be packaged as a tarball file containing the *docker-compose.yml* file and any additional artifacts referenced by the docker compose file (e.g., configuration files, environment variable files, etc.). It is highly recommend to digitally sign this package. When digitally signing the package PGP MUST be used.
 
 > **Investigation Needed**: We plan to do a security review of this package definition later.
-> During this review we will revisit the way the docker compose tarball file should be signed.
+> During this review we will revisit the way the Docker Compose tarball file should be signed.
 > We will also discuss how we should handle secure container registries that require a username and password.
 >
 > **Investigation Needed**: We need to determine what impact, if any, using 3rd party helm charts has on being Margo compliant.
 >
 > **Investigation Needed**: Missing in the current specification are ways to define the compatibility information (resources required to run, application dependencies) as well as required infrastructure  services  such as storage, message queues/bus, reverse proxy, or authentication/authorization/accounting.
 
-If either one cannot be implemented it MAY be omitted but Margo RECOMMENDS defining components for both Helm Chart **AND** Docker Compose packages to strengthen interoperability and applicability.
+If either one cannot be implemented it MAY be omitted but Margo RECOMMENDS defining [deployment profiles](#deploymentprofile-attributes) as both Helm chart **AND** Docker Compose components to strengthen interoperability and applicability.
 
 > **Note**
 > A device running the application will only install the application using either Docker Compose files or Helm Charts but not both.
 
-## Application Package Structure
-
-The application package has the following folder structure:
-
-```yaml
-/                            # REQUIRED top-level directory 
-└── margo.yaml               # REQUIRED application description file in YAML Format 
-└── resources                # OPTIONAL folder with application catalog resources e.g., icon, license file, release notes 
-```
-
 
 ## Application Description
 
-The `margo.yaml` file is the application description. The purpose of this file is to present the application on an application catalog or marketplace from where an end user selects the application to hand it over to the Workload Orchestration Software, which configures it and makes it available for installation on the edge device (see Section [Workload Management Interface](../orchestration/workload/workload-management-interface-breakdown.md)).
+The application description defined as a YAML document (type = `ApplicationDescription`) has the purpose of presenting the application, e.g., on an application catalog or marketplace from where an end user selects an application to be installed. Therefore the application is configured by the end user according to the [configuration parameters](#defining-configurable-application-parameters) to create an `ApplicationDeployment` definition, which will then be executed as the [desired state](../../margo-api-reference/workload-api/desired-state-api/desired-state/).
 
 ### Application Description Example
 
-A simple hello-world example of an `margo.yaml` file is shown below:
+A simple hello-world example of an `ApplicationDescription` is shown below:
 
 ```yaml
 {% include 'examples/valid/ApplicationDescription-001.yaml' %}
 ```
 
-An example of a `margo.yaml` file using multiple helm charts and a docker-compose file package is shown below.
+An example of an `ApplicationDescription` defining [deployment profiles](#deploymentprofile-attributes) for both cases, Helm chart as well as Docker Compose, is shown below.
 
 ```yaml
 {% include 'examples/valid/ApplicationDescription-002.yaml' %}
@@ -146,7 +193,7 @@ The expected properties for the suppported deployment types are indicated below.
 
 ## Defining configurable application parameters
 
-To allow customizable configuration values when installing an application, the `margo.yaml` defines the parameters and configuration sections giving the application vendor control over what can be configured when installing, or updating, an application. The [configuration](#configuration-attributes) section describes how the workload orchestration software vendor must display parameters to the user to allow them to specify the values. The [schema](#schema-attributes) section describes how the workload orchestration software vendor must validate the values provided by the user before the application is installed or updated.
+To allow customizable configuration values when installing an application, the *application description*  defines the parameters and configuration sections giving the application vendor control over what can be configured when installing, or updating, an application. The [configuration](#configuration-attributes) section describes how the workload orchestration software vendor must display parameters to the user to allow them to specify the values. The [schema](#schema-attributes) section describes how the workload orchestration software vendor must validate the values provided by the user before the application is installed or updated.
 
 > **Note:** At this point the specification only deals with parameter values provided by the user as part of installing, or updating, the application. We anticipate parameter values to come from other sources, such as the device, in the future and not only from the user.
 

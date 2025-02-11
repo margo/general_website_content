@@ -15,55 +15,6 @@ The application package has the following file/folder structure:
 
 An application aggregates one or more [OCI Containers](https://github.com/opencontainers). While the application package is made available in an [application registry](./workload-orch-to-app-reg-interaction.md), the referenced OCI artifacts are stored in a remote or [local registry](../local-registries). 
 
-The following diagram shows the typical workflow for the usage of the application description:
-```mermaid
----
-config:
-    layout: elk
-
-
----
-sequenceDiagram
-    actor EndUser as End User
-    participant frontend as Workload Fleet Manager Frontend
-    participant fleetmgr as Workload Fleet Manager
-    participant registry as Application Registry
-        
-    autonumber
-    
-    EndUser->>frontend: Visits Application Catalog
-    frontend->>fleetmgr: Get list of available workloads (=Apps)
-    
-    alt
-      fleetmgr ->> registry: Get 'application description' from each known application registry.
-    else
-      fleetmgr ->> fleetmgr: Get cached 'application description' for all cached applications.
-    end
-    fleetmgr->>frontend: Return list of 'application description's
-    
-    frontend ->> frontend: Read all 'application description's -> 'metadata' element
-    frontend ->> EndUser: Show UI with list of applications
-    EndUser->>frontend: Select workload (=App) to install
-    frontend ->> frontend: Read 'application description' -> 'configuration' element
-    frontend -->> EndUser: Show UI to fill App configuration
-    EndUser ->> frontend: Answer configurable questions to be applied to workload(s)
-    frontend ->> fleetmgr: Create 'ApplicationDeployment' definition
-    
-```
-
-1. An end user visits an application catalog (or marketplace) of the Workload Fleet Manager Frontend.
-2. This frontend requests all workloads from the Workload Fleet Manager.
-3. *Either*: the Workload Fleet Manager requests all application descriptions from each known  Application Registry.
-4. *Or*: the Workload Fleet Manager maintains a cache of application descriptions and services the request from there.
-5. The Workload Fleet Manager returns the retrieved documents of application descriptions to the frontend.
-6. The frontend parses the [metadata](#metadata-attributes) element of all received application description documents.
-7. The frontend presents the parsed metadata in a UI to the end user.
-8. The end user selects the workload to be installed.
-9. The frontend parses the [configuration](#dconfiguration-attributes) element of the selected application description.
-10. The frontend presents the parsed configuration to the user.
-11. The end user fills out the [configurable application parameters](#defining-configurable-application-parameters) to be applied to the workload.
-12. The frontend creates an `ApplicationDeployment` definition (from the `ApplicationDescription` and the filled out parameters) and sends it to the Workload Fleet Manager, which executes it as the [desired state](../../margo-api-reference/workload-api/desired-state-api/desired-state/).
-
 > **Note**  
 > Application catalogs or marketplaces are out of scope for Margo. The exact requirements of the marketing material shall be defined by the application marketplace beyond outlined mandatory content.
 

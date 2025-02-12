@@ -3,7 +3,7 @@
 This section defines the application package provided by an “Application Developer” who has implemented the application and aims to provide it to Margo-conformant systems. The application package comprises:
  
 - The **application description**: expressed as a [Kubernetes custom resource definition (CRD)](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) of kind `ApplicationDescription`, which is a YAML document stored in a file (e.g., `margo.yaml`) and contains information about the application's [metadata](#metadata-attributes) (e.g., description, icon, release notes, license file, etc.), application supported [deployment configurations](#deploymentprofile-attributes) (e.g,  Helm charts, Docker Compose package), and [configurable application parameters](#defining-configurable-application-parameters).  There SHALL be only one YAML file in the package root of kind `ApplicationDescription`.
-- The **resources**, which are additional information about the application (e.g., manual, icon, release notes, license file, etc.) that can be provided in an application catalog or marketplace.
+- The **resources**, which are additional information about the application (e.g., manual, icon, release notes, license file, etc.) that can be provided in an [application catalog](../../margo-overview/technical-lexicon) or [marketplace](../../margo-overview/technical-lexicon).
 
 The application package has the following file/folder structure:
 
@@ -39,7 +39,7 @@ If either one cannot be implemented it MAY be omitted but Margo RECOMMENDS defin
 
 ## Application Description
 
-The application description defined as a YAML document (kind = `ApplicationDescription`) has the purpose of presenting the application, e.g., on an application catalog or marketplace from where an end user selects an application to be installed. Therefore the application is configured by the end user according to the [configuration parameters](#defining-configurable-application-parameters) to create an `ApplicationDeployment` definition, which will then be executed as the [desired state](../../margo-api-reference/workload-api/desired-state-api/desired-state/).
+The application description has the purpose of presenting the application, e.g., on an application catalog or marketplace from where an end user selects an application to be installed. The end user defines an `ApplicationDeployment` by specifying [configuration parameters](#defining-configurable-application-parameters) for an `ApplicationDescription`. An `ApplicationDeployment` defines the [desired state](../../margo-api-reference/workload-api/desired-state-api/desired-state/) for an application.
 
 ### Application Description Example
 

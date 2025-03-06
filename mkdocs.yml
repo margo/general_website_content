@@ -1,42 +1,47 @@
-site_name: System Design
+site_name: Specification (pre-draft)
 docs_dir: system-design
 
 nav:
-  - index.md
-  - margo-overview/introduction-system-design.md
-  - margo-overview/personas.md
-  - Concepts and Terms:
-       - margo-overview/technical-lexicon.md
-       - margo-overview/application-observability-overview.md
-  - Application Distribution:
-      - app-interoperability/application-package-definition.md
-      - app-interoperability/workload-orch-to-app-reg-interaction.md
-      - app-interoperability/publishing-application-observability-data.md
-      - app-interoperability/local-registries.md
-  - Device Interoperability:
-      - device-interoperability/device-requirements.md
-      - device-interoperability/collecting-application-observability-data.md
-  - Orchestration:
-      - Workload:
-          - orchestration/workload/workload-management-interface-breakdown.md
-          - orchestration/workload/workload-orchestration-edge-onboarding.md
-          - orchestration/workload/device-capability-reporting.md
-          - orchestration/workload/workload-deployment.md
-          - orchestration/workload/consuming-application-observability-data.md
-  ##    - Device:
-  ##  - Appendix:
-  ##    - Management API Definition: margo-overview/personas.md
-  - Management API Reference:
-      - margo-api-reference/margo-api-specification.md
-      - Workload API:
-          - Desired State API:
-              - margo-api-reference/workload-api/desired-state-api/desired-state.md
-          - Device API:
-              - margo-api-reference/workload-api/device-api/device-capabilities.md
-              - margo-api-reference/workload-api/device-api/deployment-status.md
-          - Onboarding API:
-              - margo-api-reference/workload-api/onboarding-api/device-onboarding.md
-              - margo-api-reference/workload-api/onboarding-api/rootca-download.md
+  - What is Margo?: index.md
+  - Personas & Definitions:
+      - margo-overview/personas.md
+      - margo-overview/personas-extended.md
+      - margo-overview/technical-lexicon.md
+  - Overview:
+      - margo-overview/introduction-system-design.md
+      - margo-overview/application-package-overview.md
+      - margo-overview/workload-management-interface-overview.md
+      - margo-overview/devices-overview.md
+      - margo-overview/workload-observability-overview.md
+  - Components:
+      - Workloads:
+          - app-interoperability/application-package-definition.md
+          - app-interoperability/workload-orch-to-app-reg-interaction.md # = Application Registry
+          - app-interoperability/publishing-workload-observability-data.md
+          - app-interoperability/local-registries.md
+      - Workload Fleet Managers:
+          - fleet-management/workload/management-interface-requirements.md
+          - fleet-management/workload/workload-fleet-management-edge-onboarding.md
+          - fleet-management/workload/device-capability-reporting.md
+          - fleet-management/workload/workload-deployment.md
+          - fleet-management/workload/consuming-workload-observability-data.md
+      - Edge Compute Devices:
+          - device-interoperability/device-requirements.md
+          - device-interoperability/collecting-workload-observability-data.md
+  - Technical References:
+      - Margo Management Interface:
+          - margo-api-reference/margo-api-specification.md
+          - margo-api-reference/workload-api/desired-state-api/desired-state.md
+          - margo-api-reference/workload-api/device-api/device-capabilities.md
+          - margo-api-reference/workload-api/device-api/deployment-status.md
+          - margo-api-reference/workload-api/onboarding-api/device-onboarding.md
+          - margo-api-reference/workload-api/onboarding-api/rootca-download.md
+      - Application Package Definition:
+          - margo-api-reference/workload-api/application-package-api/application-description.md
+      #- Observability: 
+  - Make a Contribution:
+      - how-to-contribute/contribution-tutorial.md
+      - how-to-contribute/contribution-navigation.md
 
 theme:
   name: material
@@ -44,6 +49,7 @@ theme:
     #- navigation.tabs
     #- navigation.settings
     #- navigation.top
+    #- navigation.sections
     - navigation.tracking
     - navigation.footer
     - toc.integrate

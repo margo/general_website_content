@@ -1,6 +1,6 @@
 # Workload Fleet Management
 
-Workload Management is a critical functionality that enables deployment and maintenance of workloads that are deployed to the customers edge to enable business goals. In order to achieve Margo's interoperability mission statement, the [Margo management interface](../margo-api-reference/margo-api-specification.md) is a critical component that enables interoperability between Workload Fleet Management Software vendors and Device Vendors. Interface hosting solutions are able to utilize the open implementation provided by the Margo community as is, or follow the specification to build their own compatible client/server components.
+Workload Management is a critical functionality that enables deployment and maintenance of workloads that are deployed to the customers edge to enable business goals. In order to achieve Margo's interoperability mission statement, the [Margo Management Interface](../margo-api-reference/margo-api-specification.md) is a critical component that enables interoperability between Workload Fleet Management Software vendors and Device Vendors. Interface hosting solutions are able to utilize the open implementation provided by the Margo community as is, or follow the specification to build their own compatible client/server components.
 
 The main goals of the management interface are as follows:
 
@@ -10,16 +10,22 @@ The main goals of the management interface are as follows:
 ## Workload Deployment Sequence Diagram
 
 ```mermaid
+---
+config:
+    layout: elk
+
+
+---
 sequenceDiagram
     actor EndUser
     participant WorkloadFleetManagerFrontEnd
     participant WorkloadManifestRepo
     participant WorkloadContainerRepo
     participant WorkloadFleetManager
-       participant DeviceDeploymentspecificationRepo
+    participant DeviceDeploymentspecificationRepo
     participant ContainerOrchestrator
     participant ContainerRuntime
-    participant WorkloadManagementAgent
+    participant WorkloadFleetManagementClient
  
     autonumber
     EndUser->>WorkloadFleetManagerFrontEnd: Visits App Catalog Page
@@ -36,30 +42,30 @@ sequenceDiagram
     EndUser->>WorkloadFleetManagerFrontEnd: Select Device(s) to install application on
     EndUser->>WorkloadFleetManagerFrontEnd: Answer configurable questions to be applied to workload(s)
     WorkloadFleetManager-->>WorkloadFleetManager: Create & Store new deployment specification(s)
-    activate WorkloadManagementAgent
+    activate WorkloadFleetManagementClient
     loop Continuous check for new deployment specifications
-        WorkloadManagementAgent->>WorkloadFleetManager: Queries for new deployment spec(s)
+        WorkloadFleetManagementClient->>WorkloadFleetManager: Queries for new deployment spec(s)
         end
-    WorkloadFleetManager->>WorkloadManagementAgent: Pulls deployment specification(s)
-    WorkloadManagementAgent->>WorkloadManifestRepo: Pulls Workload Manifest(Helm)
+    WorkloadFleetManager->>WorkloadFleetManagementClient: Pulls deployment specification(s)
+    WorkloadFleetManagementClient->>WorkloadManifestRepo: Pulls Workload Manifest(Helm)
     %% Need to include authentication to the app devs repository
-    WorkloadManagementAgent->>ContainerOrchestrator: Provides Workload Manifest
-    deactivate WorkloadManagementAgent
+    WorkloadFleetManagementClient->>ContainerOrchestrator: Provides Workload Manifest
+    deactivate WorkloadFleetManagementClient
     loop
         ContainerOrchestrator->>ContainerRuntime: Initiates workload installation component 1
         ContainerOrchestrator->>ContainerRuntime: Initiates workload installation component 2
         ContainerOrchestrator->>ContainerRuntime: Initiates workload installation component n
         end
     ContainerRuntime->>WorkloadContainerRepo: Pulls OCI Containers
-    activate WorkloadManagementAgent
-    WorkloadManagementAgent->>WorkloadFleetManager: Provides Component Status Updates
+    activate WorkloadFleetManagementClient
+    WorkloadFleetManagementClient->>WorkloadFleetManager: Provides Component Status Updates
     loop
-        WorkloadManagementAgent->>WorkloadFleetManager: Component 1 Status update
-        WorkloadManagementAgent->>WorkloadFleetManager: Component 2 Status update
-        WorkloadManagementAgent->>WorkloadFleetManager: Component n Status update
+        WorkloadFleetManagementClient->>WorkloadFleetManager: Component 1 Status update
+        WorkloadFleetManagementClient->>WorkloadFleetManager: Component 2 Status update
+        WorkloadFleetManagementClient->>WorkloadFleetManager: Component n Status update
         end
-    WorkloadManagementAgent->>WorkloadFleetManager: Provides Full Deployment Status
-    deactivate WorkloadManagementAgent
+    WorkloadFleetManagementClient->>WorkloadFleetManager: Provides Full Deployment Status
+    deactivate WorkloadFleetManagementClient
     WorkloadFleetManager->>WorkloadFleetManagerFrontEnd: Updates Web UI Full Deployment Status
     WorkloadFleetManagerFrontEnd->>EndUser: EndUser Receives Final Update
 ```

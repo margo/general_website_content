@@ -1,0 +1,30 @@
+---
+name: Technical Feature
+description: Describe a Technical Feature that enables Margo's roadmap goals, but is not particularly associated with a Product Management Group child epic.
+labels: "[Technical Feature]"
+body:
+  - type: markdown
+    attributes:
+      value: "## Technical Feature"
+  - type: markdown
+    attributes:
+      value: |
+        A Technical Feature is a Margo roadmap work item lead by the technical community that may or may not be associated with a Business Feature. Technical Features should focus on the implementation and functionality of the Margo deliverables. 
+  - type: textarea
+    attributes:
+      label: "Description"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "## Additional Feature Information"
+  - type: textarea
+    attributes:
+      description: "Describe any associated Functional/Non-Functional requirements, use cases, and technical worfklows to ensure clarity on the goal."
+      value: | 
+        1. 
+        2. 
+        3. 
+        ...
+    validations:
+      required: false

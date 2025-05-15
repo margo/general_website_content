@@ -1,0 +1,38 @@
+---
+name: Business Feature
+description: Describe a Business Feature that drives additional functionality/value within the Margo deliverables. Business Features should be associated with one to many Product Management child Epic. 
+labels: "[Business Feature]"
+body:
+  - type: markdown
+    attributes:
+      value: "## Business Feature"
+  - type: markdown
+    attributes:
+      value: |
+        A Business Feature is a Margo roadmap work item that is associated with one to many Product Management Child Epics. Each Business Feature enables contributing members to provide Specification Update Proposals on how to accomplish the feature's goal. 
+  - type: textarea
+    attributes:
+      label: "Description"
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "## Associated Child Epics"
+  - type: textarea
+    attributes:
+      description: "Link to any Child Epics driving this Business Feature" #May be able to remove this, testing how our pmg and twg projects link to eachother. 
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "## Additional Feature Information"
+  - type: textarea
+    attributes:
+      description: "Describe any associated Functional/Non-Functional requirements, use cases, and technical worfklows to ensure clarity on the goal."
+      value: | 
+        1. 
+        2. 
+        3. 
+        ...
+    validations:
+      required: false

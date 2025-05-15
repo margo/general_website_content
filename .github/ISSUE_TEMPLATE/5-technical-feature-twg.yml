@@ -12,14 +12,16 @@ body:
         A Technical Feature is a Margo roadmap work item lead by the technical community that may or may not be associated with a Business Feature. Technical Features should focus on the implementation and functionality of the Margo deliverables. 
   - type: textarea
     attributes:
-      label: "Description"
+      label: "Feature description"
     validations:
       required: true
+  
   - type: markdown
     attributes:
       value: "## Additional Feature Information"
   - type: textarea
     attributes:
+      label: "Additional information"
       description: "Describe any associated Functional/Non-Functional requirements, use cases, and technical worfklows to ensure clarity on the goal."
       value: | 
         1. 

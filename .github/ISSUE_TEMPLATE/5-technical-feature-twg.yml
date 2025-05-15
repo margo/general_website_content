@@ -1,6 +1,6 @@
 ---
 name: Technical Feature
-description: Describe a Technical Feature that drives additional functionality/value within the Margo deliverables. Technical features do not require a linked child epic, but can be tied to business features.
+description: A technical feature is a roadmap work item that drives additional functionality/value within the Margo deliverables. Technical features may be associated with business features.
 labels: "[Technical Feature]"
 body:
   - type: markdown
@@ -9,7 +9,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        A Technical Feature is a technically focused work item that enables the community to reach our goals. Each Technical Feature enables contributing members to provide Specification Update Proposals on how to accomplish the feature's goal. 
+         A technical feature is a roadmap work item that drives additional functionality/value within the Margo deliverables. Technical features may be associated with business features. 
   - type: textarea
     attributes:
       label: "Feature description"

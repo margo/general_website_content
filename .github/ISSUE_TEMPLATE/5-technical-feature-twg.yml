@@ -1,6 +1,6 @@
 ---
 name: Technical Feature
-description: Describe a Technical Feature that enables Margo's roadmap goals, but is not particularly associated with a Product Management Group child epic.
+description: Describe a Technical Feature that drives additional functionality/value within the Margo deliverables. Technical features do not require a linked child epic, but can be tied to business features.
 labels: "[Technical Feature]"
 body:
   - type: markdown
@@ -9,24 +9,37 @@ body:
   - type: markdown
     attributes:
       value: |
-        A Technical Feature is a Margo roadmap work item lead by the technical community that may or may not be associated with a Business Feature. Technical Features should focus on the implementation and functionality of the Margo deliverables. 
+        A Technical Feature is a technically focused work item that enables the community to reach our goals. Each Technical Feature enables contributing members to provide Specification Update Proposals on how to accomplish the feature's goal. 
   - type: textarea
     attributes:
       label: "Feature description"
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: "## Accepting Criteria"
+  - type: textarea
+    attributes:
+      label: "Provide adequate technical acceptance criteria(s) associated with this feature below:" 
+    validations:
+      required: true
   
+  - type: markdown
+    attributes:
+      value: "## Feature Use-Cases"
+  - type: textarea
+    attributes:
+      label: "Although not required, it is highly encouraged to provide feature use-cases below:" 
+    validations:
+      required: false
+
   - type: markdown
     attributes:
       value: "## Additional Feature Information"
   - type: textarea
     attributes:
       label: "Additional information"
-      description: "Describe any associated Functional/Non-Functional requirements, use cases, and technical worfklows to ensure clarity on the goal."
-      value: | 
-        1. 
-        2. 
-        3. 
-        ...
+      description: "Describe any associated Functional/Non-Functional requirements, technical workflows, or other details to ensure clarity on the goals of the feature."
     validations:
       required: false

@@ -1,6 +1,6 @@
 ---
 name: Business Feature
-description: Describe a Business Feature that drives additional functionality/value within the Margo deliverables. Business Features should be associated with one to many Product Management child Epic. 
+description: A business feature is a roadmap work item that drives additional functionality/value within the Margo deliverables. Business features should be associated with one to many product management child epic(s). 
 labels: "[Business Feature]"
 body:
   - type: markdown
@@ -9,35 +9,38 @@ body:
   - type: markdown
     attributes:
       value: |
-        A Business Feature is a Margo roadmap work item that is associated with one to many Product Management Child Epics. Each Business Feature enables contributing members to provide Specification Update Proposals on how to accomplish the feature's goal. 
+        A business feature is a roadmap work item that drives additional functionality/value within the Margo deliverables. Business features should be associated with one to many product management child epic(s). Each Business Feature enables contributing members to provide Specification Update Proposals on how to accomplish the feature's goal. 
   - type: textarea
     attributes:
-      label: "Feature Description"
+      label: "Provide feature description below:"
     validations:
       required: true
       
   - type: markdown
     attributes:
-      value: "## Associated Child Epics"
+      value: "## Accepting Criteria"
   - type: textarea
     attributes:
-      label: "Associated Child Epics"
-      description: "Link to any Child Epics driving this Business Feature" #May be able to remove this, testing how our pmg and twg projects link to eachother. 
+      label: "Provide adequate technical acceptance criteria(s) associated with this feature below:" 
     validations:
       required: true
-      
+  
+  - type: markdown
+    attributes:
+      value: "## Feature Use-Cases"
+  - type: textarea
+    attributes:
+      label: "Although not required, it is highly encouraged to provide feature use-cases below:" 
+    validations:
+      required: false
+
   - type: markdown
     attributes:
       value: "## Additional Feature Information"
   - type: textarea
     attributes:
       label: "Additional information"
-      description: "Describe any associated Functional/Non-Functional requirements, use cases, and technical worfklows to ensure clarity on the goal."
-      value: | 
-        1. 
-        2. 
-        3. 
-        ...
+      description: "Describe any associated Functional/Non-Functional requirements, technical workflows, or other details to ensure clarity on the goals of the feature."
     validations:
       required: false
 

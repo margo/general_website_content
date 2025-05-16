@@ -18,7 +18,7 @@ body:
       
   - type: markdown
     attributes:
-      value: "## Accepting Criteria"
+      value: "## Acceptance Criteria"
   - type: textarea
     attributes:
       label: "Provide adequate technical acceptance criteria(s) associated with this feature below:" 

@@ -3,3 +3,4 @@ site
 .cache
 myenv
 .python-version
+*.code-workspace

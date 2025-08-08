@@ -37,7 +37,7 @@ nav:
           - margo-api-reference/workload-api/device-api/deployment-status.md
           - margo-api-reference/workload-api/onboarding-api/device-onboarding.md
           - margo-api-reference/workload-api/onboarding-api/rootca-download.md
-      - Application Package Definition:
+      - Application Package:
           - margo-api-reference/workload-api/application-package-api/application-description.md
       #- Observability: 
   - Make a Contribution:

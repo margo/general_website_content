@@ -84,8 +84,8 @@ Required resources element specifying the resources required to install the appl
 | Attribute | Type | Required? | Description |
 | --- | --- | --- | --- |
 | cpu | CPU |  N  | CPU element specifying the CPU requirements for the application.  See the [CPU](#cpu-attributes) section below.|
-| memory | string |  N  | The minimum amount of memory required. The value is given a binary units (`Ki` = Kibibytes, `Mi` = Mebibytes, `Gi` = Gibibytes). This is defined by the application developer. After deployment of the application, the device MUST provide this amount of memory for the application.|
-| storage | string |  N  | The amount of storage required. The value is given a binary units (`Ki` = Kibibytes, `Mi` = Mebibytes, `Gi` = Gibibytes, `Ti` Tebibytes, `Pi` = Pebibytes, `Ei` = Exbibytes). This is defined by the application developer. After deployment of the application, the device MUST provide this amount of storage for the application|
+| memory | string |  N  | The minimum amount of memory required. The value is given in binary units (`Ki` = Kibibytes, `Mi` = Mebibytes, `Gi` = Gibibytes). This is defined by the application developer. After deployment of the application, the device MUST provide this amount of memory for the application.|
+| storage | string |  N  | The amount of storage required for the application to be run. This encompasses the installed application and the data it needs to store. The value is given in binary units (`Ki` = Kibibytes, `Mi` = Mebibytes, `Gi` = Gibibytes, `Ti` Tebibytes, `Pi` = Pebibytes, `Ei` = Exbibytes). This is defined by the application developer. After deployment of the application, the device MUST provide this amount of storage for the application|
 | peripherals | []Peripheral |  N  | Peripherals element specifying the peripherals required to run the application.  See the [Peripheral](#peripheral-attributes) section below.|
 | interfaces | []CommunicationInterface |  N  | Interfaces element specifying the communication interfaces required to run the application.  See the [Communication Interfaces](#communicationinterface-attributes) section below.|
 

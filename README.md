@@ -22,6 +22,8 @@ Find out more about the Margo initiative here [https://www.margo.org/](https://w
 
 Contributions are encouraged and welcome! Contributors to the specification are required to sign the appropriate CLA. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
+[Contribution flow process ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process delineates the systematic approach utilised by the Technical Working Group for the evaluation and processing of submissions made by non-member Margo. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
+
 ## Licenses
 
 Margo contributors contributing to this draft specification have made those contributions subject to the Open Web Foundation Contributor License Agreement Contribution Copyright Grant, available at [Open Web Foundation - CLA Copyright Grant 0.9](https://www.openwebfoundation.org/the-agreements/the-owf-0-9-agreements-necessary-claims/cla-copyright-grant-0-9).

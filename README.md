@@ -5,7 +5,7 @@
 
 # Contributing
 
-[Contribution flow process In Detail ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process delineates the two systematic approaches (Cat 1 & Cat 2) utilised by the Technical Working Group for the evaluation and processing of submissions made by non-member Margo. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
+[Contribution flow process In Detail ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process delineates the two systematic approaches ([Cat 1](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge) & [Cat 2](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge)) utilised by the Technical Working Group for the evaluation and processing of submissions made by non-member Margo. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
 
 # Individual Contributor
 
@@ -13,8 +13,8 @@ If you, as an individual, own the contribution, you must sign the Individual [Co
 
 # Submission Steps
 **Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
-  - Category 1 (Cat 1): Minor [issues](https://github.com/margo/specification/issues) outlining a bug or [pull request](https://github.com/margo/specification/pulls) submission to suggest a simple editorial change
-  - Category 2 (Cat 2): Specification major enhancement proposals require following the [Specification Update Process](https://github.com/margo/specification-enhancements)
+  - [Category 1 (Cat 1)](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge): Minor [issues](https://github.com/margo/specification/issues) outlining a bug or [pull request](https://github.com/margo/specification/pulls) submission to suggest a simple editorial change
+  - [Category 2 (Cat 2)](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge): Specification major enhancement proposals require following the [Specification Update Process](https://github.com/margo/specification-enhancements)
 
 > These workflows ensure quality control, proper licensing compliance, and structured review processes for both routine contributions and major specification enhancements within the MARGO project ecosystem.
 

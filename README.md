@@ -10,7 +10,7 @@
 
 # Individual Contributor
 
-If you, as an individual, own the contribution, you must sign the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA). This signed CLA will be required before your contribution can be merged into the project repository. Please note that as an individual contributor, you are acting on your own behalf, and not on behalf of your employer.
+If you, as an individual, own the contribution, you must sign the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA) at the point of submitting a PR. This signed CLA will be required before your contribution can be merged into the project repository. Please note that as an individual contributor, you are acting on your own behalf, and not on behalf of your employer.
 
 # Submission Steps
 **Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.

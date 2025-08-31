@@ -19,10 +19,10 @@ If you, as an individual, own the contribution, you must sign the Individual [Co
 
 > These workflows ensure quality control, proper licensing compliance, and structured review processes for both routine contributions and major specification enhancements within the MARGO project ecosystem.
 
-Cat 1: Choose Cat 1 → Submit PR → EasyCLA → Review → Approve → Merge
+Choose Cat 1: → Submit PR → EasyCLA → Review → Approve → Merge
 <img width="3344" height="254" alt="image" src="https://github.com/user-attachments/assets/fbf91b76-1bd4-437c-ba31-a8f93588a4ac" />
 
-Cat 2: Choose Cat 2 → Submit Issue → SUP Process → EasyCLA → Review → Approve → Merge
+Choose Cat 2: → Specification Update Process](https://github.com/margo/specification-enhancements → SUP Process → EasyCLA → Review → Approve → Merge
 <img width="3346" height="204" alt="image" src="https://github.com/user-attachments/assets/145cd908-9d04-4827-8b12-1e4df98522c2" />
 
 **ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  

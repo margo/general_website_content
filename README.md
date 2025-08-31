@@ -15,7 +15,7 @@ If you, as an individual, own the contribution, you must sign the Individual [Co
 # Submission Steps
 **Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
   - Category 1 (Cat 1): Minor [issues](https://github.com/margo/specification/issues) outlining a bug or [pull request](https://github.com/margo/specification/pulls) submission to suggest a simple editorial change
-  - Category 2 (Cat 2): Specification major enhancement proposals require following the ([Specification Update Process](https://github.com/margo/specification-enhancements)
+  - Category 2 (Cat 2): Specification major enhancement proposals require following the [Specification Update Process](https://github.com/margo/specification-enhancements)
 
 > These workflows ensure quality control, proper licensing compliance, and structured review processes for both routine contributions and major specification enhancements within the MARGO project ecosystem.
 

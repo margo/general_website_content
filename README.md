@@ -30,8 +30,8 @@ Choose Cat 2: → Specification Update Process](https://github.com/margo/specifi
 ## Process Outcomes
 
 ### **Success Paths**
-- **Cat 1**: PR approved and merged by Chair
-- **Cat 2**: Added to PM process for implementation
+- **Cat 1**: PR approved by TWG members and merged by Chair
+- **Cat 2**: Reviewed and approved by the SUP committee
 
 ### **Closure Paths**
 - Chair closes issue (insufficient feedback/comments)
@@ -43,8 +43,6 @@ Choose Cat 2: → Specification Update Process](https://github.com/margo/specifi
 - **Transparency**: Clear review stages with defined stakeholders
 - **Member Oversight**: MARGO members maintain quality control
 - **Chair Authority**: Final decision-making power for approvals and closures
-
-This workflow ensures quality control, proper licensing compliance, and structured review processes for both routine contributions and major specification enhancements within the MARGO project ecosystem.
 
 ## Licenses
 

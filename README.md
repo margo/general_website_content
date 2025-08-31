@@ -22,7 +22,7 @@ If you, as an individual, own the contribution, you must sign the Individual [Co
 Choose Cat 1: → Submit PR → EasyCLA → Review → Approve → Merge
 <img width="3344" height="254" alt="image" src="https://github.com/user-attachments/assets/fbf91b76-1bd4-437c-ba31-a8f93588a4ac" />
 
-Choose Cat 2: → ]Specification Update Process](https://github.com/margo/specification-enhancements) → [SUP Process](https://github.com/margo/Margo-collaboration/blob/main/specification_update_processes/process-overview.md#guidelines-for-pull-requests) → EasyCLA → Review → Approve → Merge
+Choose Cat 2: → [Specification Update Process](https://github.com/margo/specification-enhancements) → [SUP Process](https://github.com/margo/Margo-collaboration/blob/main/specification_update_processes/process-overview.md#guidelines-for-pull-requests) → EasyCLA → Review → Approve → Merge
 <img width="3346" height="204" alt="image" src="https://github.com/user-attachments/assets/145cd908-9d04-4827-8b12-1e4df98522c2" />
 
 **ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  

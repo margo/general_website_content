@@ -12,16 +12,17 @@
 If you, as an individual, own the contribution, you **MUST SIGN** the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA) at the point of submitting a PR. This signed CLA will be required before your contribution can be merged into the project repository. Just so you know, as an individual contributor, you are acting on your own behalf and not on your employer.
 
 # Submission Steps
+
 **Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
-  - [Category 1 (Cat 1)](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge): Minor [Bug Report](https://github.com/margo/specification/issues) outlining a bug or [pull request](https://github.com/margo/specification/pulls) submission to suggest a simple editorial change
-  - [Category 2 (Cat 2)](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge): Submit an [Enhancement Request](https://github.com/margo/specification/issues) detailing the suggestion and, optionally, submission of a completed specification update proposal document detailing the proposal's technical solution.
-> These workflows ensure quality control, proper licensing compliance, and structured review processes for both routine contributions and major specification enhancements within the MARGO project ecosystem.
 
-## Choose Cat 1: → EasyCLA -> Submit PR → Review → Approve → Merge
-<img width="3344" height="254" alt="image" src="https://github.com/user-attachments/assets/fbf91b76-1bd4-437c-ba31-a8f93588a4ac" />
+Category 1 (Cat 1): Minor Bug Report Issue or pull request submission to suggest a simple editorial change
+Category 2 (Cat 2): Specification Enhancement Request detailing a suggested function proposal.
 
-## Choose Cat 2: → Submit Enhancement Request | (optional steps) EasyCLA -> Submit specification update proposal document -> Review -> Approve -> Create specification PR
-<img width="3346" height="204" alt="image" src="https://github.com/user-attachments/assets/145cd908-9d04-4827-8b12-1e4df98522c2" />
+<img width="2556" height="904" alt="image" src="https://github.com/user-attachments/assets/2566704d-8db8-48f9-a12b-e4afac5b73cf" />
+
+**Cat 1 - Step 2:** [Submit PR](https://github.com/margo/specification/pulls)
+
+**Cat 2 - Step 2:** [Submit Enhancement Request](https://github.com/margo/specification-enhancements)
 
 **ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  
 

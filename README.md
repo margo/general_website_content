@@ -19,7 +19,7 @@ If you, as an individual, own the contribution, you **MUST SIGN** the Individual
 
 **Category 2 (Cat 2):** Specification Enhancement Request detailing a suggested function proposal.
 
-<img width="2556" height="904" alt="image" src="https://github.com/user-attachments/assets/2566704d-8db8-48f9-a12b-e4afac5b73cf" />
+<img width="2606" height="880" alt="image" src="https://github.com/user-attachments/assets/880ae53b-298c-42c6-a816-8c2ba166066f" />
 
 **Cat 1 - Step 2:** [Submit PR](https://github.com/margo/specification/pulls)
 

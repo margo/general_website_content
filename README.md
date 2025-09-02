@@ -15,8 +15,9 @@ If you, as an individual, own the contribution, you **MUST SIGN** the Individual
 
 **Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
 
-Category 1 (Cat 1): Minor Bug Report Issue or pull request submission to suggest a simple editorial change
-Category 2 (Cat 2): Specification Enhancement Request detailing a suggested function proposal.
+**Category 1 (Cat 1):** Minor Bug Report Issue or pull request submission to suggest a simple editorial change
+
+**Category 2 (Cat 2):** Specification Enhancement Request detailing a suggested function proposal.
 
 <img width="2556" height="904" alt="image" src="https://github.com/user-attachments/assets/2566704d-8db8-48f9-a12b-e4afac5b73cf" />
 

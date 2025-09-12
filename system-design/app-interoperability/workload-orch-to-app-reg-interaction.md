@@ -1,6 +1,6 @@
 # Application Registry
 
-This section describes the Application Registry and the exchange of an [application package](./application-package-definition.md) from an Application Developer to the Workload Fleet Manager. 
+This section describes the Application Registry and the exchange of an [application package](./application-package-definition.md) from an Application Developer to the Workload Fleet Manager (WFM). 
 
 The Application Developer SHALL use a [Git repository](https://git-scm.com/) to share an [application package](./application-package-definition.md). This Git repository is considered the Application Registry. 
 
@@ -19,7 +19,7 @@ Then, the [application package](./application-package-definition.md) is ready to
 
 During this process the containers referenced in the application manifest ([Helm Chart](https://helm.sh/docs/) or [Compose](https://github.com/compose-spec/compose-spec/blob/master/03-compose-file.md)) are retrieved from container/Helm registries. 
 
-At a minimum, a Margo-compliant WFM SHALL provide a way for an end user to manually setup a connection between the WFM and an application registry. This is required so as not to prohibit an end user for being able to install any Margo-compliant application they wish; including applications developed by the end user. 
+At a minimum, a Margo-compliant Workload Fleet Manager SHALL provide a way for an end user to manually set up a connection between the Workload Fleet Manager and an application registry. This is required so as not to prohibit an end user from being able to install any Margo-compliant application they wish, including applications developed by the end user.  
 
 The Workload Fleet Manager MAY provide enhanced user experience options such as the pre-configuring of application registries to monitor. These can include application registries from third-party application vendors or their own applications. 
 

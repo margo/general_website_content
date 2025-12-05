@@ -5,47 +5,78 @@
 
 # Contributing
 
-[Contribution flow process In Detail ](https://miro.com/app/board/uXjVJfhlCYM=/?share_link_id=610857134424) - This flow process incorporates two systematic approaches, ([Cat 1](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-1--submit-pr--easycla--review--approve--merge) & [Cat 2](https://github.com/margo/specification/tree/pre-draft?tab=readme-ov-file#choose-cat-2--specification-update-process--sup-process--easycla--review--approve--merge)) utilised by the Technical Working Group for the evaluation and processing of submissions made by non-Margo members. It encompasses a series of defined stages, ensuring that each submission is rigorously reviewed in alignment with established criteria and protocols. The process is designed to facilitate transparency, efficiency, and thoroughness, thereby fostering a robust framework for collaboration and innovation within the group.
+This document provides motivated individuals with information on how to contribute and improve the Margo initiative.
 
-# Individual Contributor (Non-member)
+## Specification Enhancement Requests
 
-If you, as an individual non-Margo member, own the contribution, you **MUST SIGN** the Individual [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback) (CLA) at the point of submitting a PR. This signed CLA will be required before your contribution can be merged into the project repository. Just so you know, as an individual contributor, you are acting on your own behalf and not on your employer.
+The Margo initiative is an open-source project designed to evolve through community input. Whether you’re an initiative member or simply passionate about improving open architecture standards, your ideas matter! We welcome enhancement requests from anyone interested in making Margo more robust, interoperable, and future-ready.
+Please navigate to the link below and follow the instructions to submit your specification enhancement request:
+- [Specification Enhancement Repository](https://github.com/margo/specification-enhancements)
 
-# Submission Steps
+## Margo Code First Sandbox Feedback
 
-**Step 1:** The Contributor selects either Category 1 or Category 2 based on the type of submission proposal.
+In spec development, "code first" refers to an approach where the implementation of a feature or system is driven by writing code before formalizing the specification. This contrasts with a "spec first" approach, where detailed specifications (e.g., API contracts, data models, and workflows) are designed before implementation begins.
 
-**Category 1 (Cat 1):** Minor Bug Report Issue or pull request submission to suggest a simple editorial change
+The Margo initiative utilizes this sandbox, in conjunction with the specification, to enable fully thought through proposals that include specification and working code snippets. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities. 
 
-**Category 2 (Cat 2):** Specification Enhancement Request detailing a suggested function proposal.
+To provide feedback towards the Code First Sandbox, whether bug reports or features requests, please navigate to the link below:
+- [Sandbox Repository](https://github.com/margo/sandbox)
 
-<img width="2606" height="880" alt="image" src="https://github.com/user-attachments/assets/880ae53b-298c-42c6-a816-8c2ba166066f" />
+## Contribution Checklist
 
-**Cat 1 - Step 2:** [Submit PR](https://github.com/margo/specification/pulls)
+- Contributions to the Specification must be covered by a Corporate CLA or Individual CLA  
+- Any code changes must be accompanied with automated tests 
+- Add the required copyright header to each new file introduced if appropriate, see [licensing information](LICENSE)
+- Add `signed-off` to all commits to certify the "Developer's Certificate of Origin", see below
+- Structure your commits logically, in small steps
+  - one separable functionality/fix/refactoring = one commit
+  - do not mix those there in a single commit
+  - after each commit, the tree still has to build and work, i.e. do not add
+    even temporary breakages inside a commit series (helps when tracking down
+    bugs). This also applies to documentation commits processed by, e.g., `mkdocs`
+- Base commits on top of latest `pre-draft` branch
 
-**Cat 2 - Step 2:** [Submit Enhancement Request](https://github.com/margo/specification-enhancements)
+### Signing the CLA for Contributions to the Specification
+If you have not yet signed the Individual CLA, or your organization has not yet signed the Corporate CLA, or if your account has not yet been authorized by your organization to contribute to Margo, the [LFX EasyCLA bot](https://easycla.lfx.linuxfoundation.org/#/) will prompt you to follow the appriopriate steps to authorize your contribution. 
 
-**ALL** Non-member PR submissions must sign the [Contributor License Agreement](https://github.com/margo/EasyCLA-public-feedback).  
+To ensure your contribution is covered before you make a pull request or to sign the CLA, open a PR at https://github.com/margo/EasyCLA.
 
-## Process Outcomes
+### Sign your work
 
-### **Success Paths**
-- **Cat 1**:
-  - PR approved by TWG members and merged into the appropriate release branch
-- **Cat 2**:
-  - Enhancement requests accepted and added to the roadmap 
-  - (Optional) Specification update proposal document submitted and approved by the TWG technical leads
+The sign-off is a simple line at the end of the explanation for the patch, e.g.
 
-### **Closure Paths**
-- Chair closes issue (insufficient feedback/comments)
-- PR closed due to unresolved objections
-- Process stopped due to EasyCLA non-compliance
+    Signed-off-by: Random J Developer <random@developer.example.org>
 
-## Key Governance Principles
-- **Sign-off Framework**: All contributions require proper authorization
-- **Transparency**: Clear review stages with defined stakeholders
-- **Member Oversight**: MARGO members maintain quality control
-- **Chair Authority**: Final decision-making power for approvals and closures
+This lines certifies that you wrote it or otherwise have the right to pass it on as an open-source patch.
+Check with your employer when not working on your own!
+
+**Tip**: The sign-off will be created for you automatically if you use `git commit -s` (or `git revert -s`).
+
+### Developer's Certificate of Origin 1.1
+
+    By making a contribution to this project, I certify that:
+
+        (a) The contribution was created in whole or in part by me and I
+            have the right to submit it under the open source license
+            indicated in the file; or
+
+        (b) The contribution is based upon previous work that, to the best
+            of my knowledge, is covered under an appropriate open source
+            license and I have the right under that license to submit that
+            work with modifications, whether created in whole or in part
+            by me, under the same open source license (unless I am
+            permitted to submit under a different license), as indicated
+            in the file; or
+
+        (c) The contribution was provided directly to me by some other
+            person who certified (a), (b) or (c) and I have not modified
+            it.
+
+        (d) I understand and agree that this project and the contribution
+            are public and that a record of the contribution (including all
+            personal information I submit with it, including my sign-off) is
+            maintained indefinitely and may be redistributed consistent with
+            this project or the open source license(s) involved.
 
 ## Licenses
 

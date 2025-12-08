@@ -11,11 +11,17 @@ jobs:
   trigger-sync:
     runs-on: ubuntu-latest
     steps:
+      - name: Generate token for margo-docs
+        id: generate-token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.DOCS_SYNC_APP_ID }}
+          private_key: ${{ secrets.DOCS_SYNC_APP_PRIVATE_KEY }}
+
       - name: Trigger margo-docs sync
         uses: peter-evans/repository-dispatch@v3
         with:
-          token: ${{ secrets.DOCS_REPO_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
           repository: margo/margo-docs
           event-type: sync-content
           client-payload: '{"source": "general_website_content"}'
-

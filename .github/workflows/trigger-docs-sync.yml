@@ -1,0 +1,21 @@
+name: Trigger Docs Sync
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'system-design/**'
+
+jobs:
+  trigger-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger margo-docs sync
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOCS_REPO_TOKEN }}
+          repository: margo/margo-docs
+          event-type: sync-content
+          client-payload: '{"source": "general_website_content"}'
+

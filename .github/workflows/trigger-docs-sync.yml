@@ -3,7 +3,7 @@ name: Trigger Docs Sync
 on:
   push:
     branches:
-      - main
+      - pre-draft
     paths:
       - 'system-design/**'
 

@@ -13,7 +13,7 @@ Please navigate to the link below and follow the instructions to submit your enh
 
 In spec development, "code first" refers to an approach where the implementation of a feature or system is driven by writing code before formalizing the specification. This contrasts with a "spec first" approach, where detailed specifications (e.g., API contracts, data models, and workflows) are designed before implementation begins.
 
-The Margo initiative utilizes this sandbox, in conjunction with the specification, to enable fully thought through proposals that include specification updates and working code examples. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities. 
+The Margo initiative utilizes this sandbox, in conjunction with the specification enhancements, to enable fully specified contributions to the specification. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities. 
 
 To provide feedback towards the Code First Sandbox, whether bug reports or features requests, please navigate to the link below:
 - [Sandbox Repository](https://github.com/margo/sandbox)

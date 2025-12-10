@@ -6,7 +6,7 @@ myenv
 
 # Ignore the generated files:
 system-design/specification/margo-management-interface/desired-state.md
-system-design/specification/application-package/application-description.md
-src/specification/application-package/docs
+system-design/specification/applications/application-description.md
+src/specification/applications/docs
 src/specification/margo-management-interface/docs
 *.code-workspace

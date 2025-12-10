@@ -61,7 +61,7 @@ Software at rest is made available as an Application Package, which is a folder 
 
 [Application Packages][application-package] and [Components][component] are managed and hosted separately:
 
-- [Application Registries][application-registry] store [Application Descriptions][application-description] and their associated application resources. An [Application Registry][application-registry] is implemented as a git repository.
+- [Application Registries][application-registry] store [Application Descriptions][application-description] and their associated application resources. An [Application Registry][application-registry] is compliant with the [OCI Registry API (v1.1.0)](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md).
 - [Component Registries][component-registry] store [Components][component]
 
 The following diagram shows, at hand of an example, the relationship between an [Application Package][application-package] and the [Components][component] listed within its [Deployment Profiles][deployment-profile]:
@@ -70,7 +70,7 @@ The following diagram shows, at hand of an example, the relationship between an 
 C4Component
     title Application Bundling: Example 1 - Helm and Compose deployment profiles provided
 
-    System_Boundary(ar, "Application Registry (Git)") {
+    System_Boundary(ar, "Application Registry") {
         System_Boundary(ab1, "Application Package 1") {
             Component(atb1, "Application Package", "Reference")
 
@@ -124,7 +124,7 @@ C4Component
 
     UpdateLayoutConfig($c4BoundaryInRow="1", $c4ShapeInRow="3")
 
-    System_Boundary(ar, "Application Registry (Git)") {
+    System_Boundary(ar, "Application Registry") {
         System_Boundary(ab1, "Application Package 1") {
             Component(atb1, "Application Package")
 
@@ -167,7 +167,7 @@ The application and contained components are typically configurable with the opt
 
 ### 2. Software Deployment
 
-When a device gets the instruction to run an [Application][application] (over a desired-state specified with an [`ApplicationDeployment` object][deployment-definition]), its [Workload Fleet Management Agent][wfma] interacts with the [providers][provider-model].
+When a device gets the instruction to run an [Application][application] (over a desired-state specified with an [`ApplicationDeployment` object][deployment-definition]), its [Workload Fleet Management Client][wfmc] interacts with the [providers][provider-model].
 That way all [Workloads][workload] needed for an [Application][application] should get started and the desired state should be reached.
 
 ```mermaid
@@ -200,9 +200,9 @@ C4Context
 
 In this stage the [providers][provider-model] are responsible for managing the individual [Workloads][workload].
 
-On a Helm v3 [Deployment Profiles][deployment-profile], a [Workload Fleet Management Agent][wfma] implementation could utilize the Helm API to start the individual Helm Charts.
+On a Helm v3 [Deployment Profiles][deployment-profile], a [Workload Fleet Management Client][wfmc] implementation could utilize the Helm API to start the individual Helm Charts.
 
-On a Compose [Deployment Profiles][deployment-profile], a [Workload Fleet Management Agent][wfma] implementation could utilize the Compose CLI to start the individual [Workloads][workload].
+On a Compose [Deployment Profiles][deployment-profile], a [Workload Fleet Management Client][wfmc] implementation could utilize the Compose CLI to start the individual [Workloads][workload].
 
 The following diagram shows the result of reaching the desired state for an [Application][application] with a Helm v3 [Deployment Profile][deployment-profile] (the result of `helm install`).
 
@@ -213,7 +213,7 @@ C4Component
     UpdateLayoutConfig($c4BoundaryInRow="3", $c4ShapeInRow="1")
 
     System_Boundary(dev1, "Device 1") {
-        System_Boundary(woa1, "Workload Fleet Management Agent") {
+        System_Boundary(woa1, "Workload Fleet Management Client") {
             Component(atb1, "Application Deployment 1", "ApplicationDeployment", "YAML document")
         }
 
@@ -248,7 +248,7 @@ C4Component
     UpdateLayoutConfig($c4BoundaryInRow="3", $c4ShapeInRow="1")
 
     System_Boundary(dev1, "Device 1") {
-        System_Boundary(woa1, "Workload Fleet Management Agent") {
+        System_Boundary(woa1, "Workload Fleet Management Client") {
             Component(atb1, "Application Deployment 1", "ApplicationDeployment", "YAML document")
         }
 
@@ -272,14 +272,14 @@ C4Component
     UpdateElementStyle(atb1, $fontColor="white", $bgColor="blue", $borderColor="grey")
 ```
 
-[application-description]: ../specification/application-package/application-description.md
-[application-package]: ../concepts/workloads/application-package.md
+[application-description]: ../specification/applications/application-description.md
+[application-package]: ../concepts/applications/application-package.md
 [application-registry]: technical-lexicon.md#application-registry
 [component]: technical-lexicon.md#component
 [workload]: technical-lexicon.md#workload
 [application]: technical-lexicon.md#application
 [component-registry]: technical-lexicon.md#component-registry
-[deployment-definition]: ../../specification/margo-management-interface/desired-state/?h=applicationdeployment.md#applicationdeployment-definition
+[deployment-definition]: ../specification/margo-management-interface/desired-state.md#applicationdeployment-yaml-definition
 [provider-model]: technical-lexicon.md#provider-model
-[wfma]: technical-lexicon.md#workload-fleet-management-agent
-[deployment-profile]: ../specification/application-package/application-description.md#deploymentprofile-attributes
+[wfmc]: technical-lexicon.md#workload-fleet-management-client
+[deployment-profile]: ../specification/applications/application-description.md#deploymentprofile-attributes

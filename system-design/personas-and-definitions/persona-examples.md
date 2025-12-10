@@ -1,4 +1,4 @@
-# Persona Examples X
+# Persona Examples
 
 ## Multiple Personas per Entity
 

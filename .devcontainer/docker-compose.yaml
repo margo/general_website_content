@@ -1,17 +1,17 @@
 services:
-  mkdocs:
+  general_website_content:
     build:
       context: ../
       dockerfile: ./.devcontainer/.dockerfile
-    container_name: mkdocs
+    container_name: general_website_content
     ports:
       - 8000:8000
     volumes:
       - ..:/home/vscode/docs/
     tty: true           # <- keeps container running
     networks:
-      - mkdocs-network
+      - general_website_content_network
 
 networks: 
-  mkdocs-network:
+  general_website_content_network:
     driver: bridge

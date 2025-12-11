@@ -10,15 +10,15 @@ nav:
       - personas-and-definitions/software-composition.md
   - Overview:
       - overview/envisioned-system-design.md
-      - overview/workloads.md
+      - overview/applications.md
       - overview/workload-fleet-management.md
       - overview/edge-compute-devices.md
       - overview/workload-observability.md
   - Concepts:
-      - Workloads:
-          - concepts/workloads/application-package.md
-          - concepts/workloads/application-registry.md
-          - concepts/workloads/local-registries.md
+      - Applications:
+          - concepts/applications/application-package.md
+          - concepts/applications/application-registry.md
+          - concepts/applications/local-registries.md
       - Workload Fleet Managers:
           - concepts/workload-fleet-managers/device-client-onboarding.md
           - concepts/workload-fleet-managers/device-capabilities.md

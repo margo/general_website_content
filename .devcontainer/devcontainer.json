@@ -1,8 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "mkdocs",
-	"service": "mkdocs",
+	"name": "general_website_content",
+	"service": "general_website_content",
 	"workspaceFolder": "/home/vscode/docs/",
 	"dockerComposeFile": [
 		"../.devcontainer/docker-compose.yaml"

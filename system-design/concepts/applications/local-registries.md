@@ -1,6 +1,6 @@
 # Local Registries
 
-The [Component Registry](application-registry.md) as well as the [Container Image Registry](application-registry.md) considered by Margo are the registries that need to be accessed by devices to download components (i.e., Helm Charts or Compose Archives) or container images.
+The [Component Registry](application-registry) as well as the [Container Image Registry](application-registry) considered by Margo are the registries that need to be accessed by devices to download components (i.e., Helm Charts or Compose Archives) or container images.
 This section describes how to configure those as local registries to avoid reliance on public Internet-accessible registries.
 
 The reasons for not using public registries are for example: (1) publicly hosted container images or Helm charts could become unavailable at some point, as the owner decides to take the container images or Helm charts off the public registry, (2) Internet connectivity may not be available to the device and hence public registries are not reachable, or (3) end-users want to host their own registries so they can do security scans and package validation.
@@ -89,5 +89,6 @@ helm repo add my-cached-repo http://<chartmuseum-ip>:8080
 helm repo update
 helm install my-release my-cached-repo/<chart-name>
 ```
+
 
 Now, when deploying applications in Kubernetes using Helm, the cached repository is used to serve charts rather than the remote repository.

@@ -8,7 +8,7 @@ Find out more about the Margo initiative and how to become engaged at [margo.org
 
 > **Disclaimer**
 
-Preview Release 1 of the Margo Specification draft in the [Margo Specification] repository is a work in progress.
+Preview Release 1 of the Margo Specification draft in the [Margo Specification](https://github.com/margo/specification) repository is a work in progress.
 
 Do not implement this version of the specification or treat it as authoritative in any way.
 

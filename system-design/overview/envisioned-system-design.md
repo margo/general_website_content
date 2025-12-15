@@ -12,7 +12,7 @@ The envisioned system can be broken down into the following main components:
 
 Workloads are the software deployed to Margo-compliant edge compute devices.
 They are deployed [Components](../personas-and-definitions/technical-lexicon.md#component) of an [Application Package](../personas-and-definitions/technical-lexicon.md#application-package).
-See the [Applications overview](applications.md) page to learn more Margo's supported workloads and how they are packaged.
+See the [Applications overview](applications) page to learn more Margo's supported workloads and how they are packaged.
 
 ### Workload Observability
 

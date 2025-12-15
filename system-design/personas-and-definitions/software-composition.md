@@ -272,14 +272,14 @@ C4Component
     UpdateElementStyle(atb1, $fontColor="white", $bgColor="blue", $borderColor="grey")
 ```
 
-[application-description]: ../specification/applications/application-description.md
-[application-package]: ../concepts/applications/application-package.md
-[application-registry]: technical-lexicon.md#application-registry
-[component]: technical-lexicon.md#component
-[workload]: technical-lexicon.md#workload
-[application]: technical-lexicon.md#application
-[component-registry]: technical-lexicon.md#component-registry
-[deployment-definition]: ../specification/margo-management-interface/desired-state.md#applicationdeployment-yaml-definition
-[provider-model]: technical-lexicon.md#provider-model
-[wfmc]: technical-lexicon.md#workload-fleet-management-client
-[deployment-profile]: ../specification/applications/application-description.md#deploymentprofile-attributes
+[application-description]: ../specification/applications/application-description
+[application-package]: ../concepts/applications/application-package
+[application-registry]: technical-lexicon#application-registry
+[component]: technical-lexicon#component
+[workload]: technical-lexicon#workload
+[application]: technical-lexicon#application
+[component-registry]: technical-lexicon#component-registry
+[deployment-definition]: ../specification/margo-management-interface/desired-state#applicationdeployment-yaml-definition
+[provider-model]: technical-lexicon#provider-model
+[wfmc]: technical-lexicon#workload-fleet-management-client
+[deployment-profile]: ../specification/applications/application-description#deploymentprofile-attributes

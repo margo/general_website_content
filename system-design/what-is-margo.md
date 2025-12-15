@@ -8,9 +8,9 @@ Find out more about the Margo initiative and how to become engaged at [margo.org
 
 > **Disclaimer**
 
-This is a commit *snapshot* rendering of the of work-in-progress Margo Specification draft from the repository [=@=reponame=@=](https://github.com/=@=reponame=@=), commit `=@=commit=@=`.
+Preview Release 1 of the Margo Specification draft in the [Margo Specification] repository is a work in progress.
 
-Do not attempt to implement this version of the Specification or reference this version as authoritative in any way!
+Do not implement this version of the specification or treat it as authoritative in any way.
 
 ## Mission Statement
 

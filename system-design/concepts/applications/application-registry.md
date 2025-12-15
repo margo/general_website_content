@@ -29,8 +29,8 @@ flowchart
    class s2 dashed
 ```
 
-As shown in the figure above, an `Application Developer` uploads an [Application Package](application-package.md) to an Application Registry. From there, it is available to a `Workload Fleet Manager` (WFM).
-The WFM acts as a client to pull an [Application Package](application-package.md) from the Application Registry. It would then list this Application Package on its UI (e.g., an internal `Application Catalog`) to enable the usage on its managed devices.
+As shown in the figure above, an `Application Developer` uploads an [Application Package](application-package) to an Application Registry. From there, it is available to a `Workload Fleet Manager` (WFM).
+The WFM acts as a client to pull an [Application Package](application-package) from the Application Registry. It would then list this Application Package on its UI (e.g., an internal `Application Catalog`) to enable the usage on its managed devices.
 
 > Note: The figure above shows an `Authentication Service` that manages access control for the Application Registry. This service and interactions with it are not yet formally defined by Margo and needs to be further discussed in the future. The idea here is that the WFM requests a token from the Authentication Service to include in requests to the Application Registry. The received token is then validated by the Application Registry through interaction with the Authentication Service.
 

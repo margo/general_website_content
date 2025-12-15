@@ -13,7 +13,7 @@ As of now this stage is out of scope in the Margo specification and not being co
 
 ## Terminology Scoping
 
-This section does not declare terminology, that is the task of the [Technical Lexicon](technical-lexicon.md), but rather tries to scope some of the terms to the above mentioned stages.
+This section does not declare terminology, that is the task of the [Technical Lexicon](technical-lexicon), but rather tries to scope some of the terms to the above mentioned stages.
 
 #### Application
 
@@ -38,7 +38,7 @@ Some [providers][provider-model] might support that multiple [Workload][workload
 1. Helm v3 as [Component][component]: a [Helm Chart](https://helm.sh/docs/topics/charts/)
 2. Helm v3 as [Workload][workload]: all container images required by the to-be-started pods.
 3. Compose as [Component][component]: a [Compose Archive][application-package]
-4. Compose as [Workload][workload]: a so-called [Compose file](https://github.com/compose-spec/compose-spec/blob/main/spec.md#compose-file) and all the container images required by the to-be-started [services](https://github.com/compose-spec/compose-spec/blob/main/05-services.md).
+4. Compose as [Workload][workload]: a so-called [Compose file](https://github.com/compose-spec/compose-spec/blob/main/spec#compose-file) and all the container images required by the to-be-started [services](https://github.com/compose-spec/compose-spec/blob/main/05-services).
 
 ## Stages
 

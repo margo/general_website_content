@@ -52,8 +52,6 @@ The core deliverables for Margo address the mission to enable interoperability a
 
 Read more about [Margo's deliverables](https://margo.org/about/who-are-we/#deliverables) on our web site.
 
-## License
-
-=@=copyright=@=
-
-See [License](https://github.com/margo/specification?#licenses).
+## Copyright License & Source Code Contributions
+- See [Copyright License](https://github.com/margo#copyright-license).
+- See the [Source Code Contributions License](https://github.com/margo#source-code-contributions)

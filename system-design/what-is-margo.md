@@ -8,9 +8,9 @@ Find out more about the Margo initiative and how to become engaged at [margo.org
 
 > **Disclaimer**
 
-This is a commit *snapshot* rendering of the of work-in-progress Margo Specification draft from the repository [=@=reponame=@=](https://github.com/=@=reponame=@=), commit `=@=commit=@=`.
+Preview Release 1 of the Margo Specification draft in the [Margo Specification](https://github.com/margo/specification) repository is a work in progress.
 
-Do not attempt to implement this version of the Specification or reference this version as authoritative in any way!
+Do not implement this version of the Specification or treat it as authoritative in any way.
 
 ## Mission Statement
 
@@ -52,8 +52,6 @@ The core deliverables for Margo address the mission to enable interoperability a
 
 Read more about [Margo's deliverables](https://margo.org/about/who-are-we/#deliverables) on our web site.
 
-## License
-
-=@=copyright=@=
-
-See [License](https://github.com/margo/specification?#licenses).
+## Copyright License & Source Code Contributions
+- See [Copyright License](https://github.com/margo#copyright-license).
+- See the [Source Code Contributions License](https://github.com/margo#source-code-contributions)

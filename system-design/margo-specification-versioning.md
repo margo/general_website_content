@@ -1,4 +1,4 @@
-## **Margo Specification Versioning Strategy**
+# **Margo Specification Versioning Strategy**
 
 ### **Understanding Version Numbers**
 

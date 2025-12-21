@@ -1,10 +1,10 @@
 {
     "title": "Overview",
     "pages": [
-      "introduction-system-design",
-      "application-package-overview",
-      "workload-management-interface-overview",
-      "devices-overview",
-      "workload-observability-overview"
+      "envisioned-system-design",
+      "applications",
+      "workload-fleet-management",
+      "edge-compute-devices",
+      "workload-observability"
     ]
   }

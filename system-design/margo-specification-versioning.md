@@ -1,4 +1,4 @@
-# **Margo Specification Versioning Strategy**
+# Margo Specification Versioning Strategy
 
 ### **Understanding Version Numbers**
 
@@ -8,7 +8,7 @@ Margo follows semantic versioning principles to communicate the maturity and sta
 - **Minor version (second number - v1.1)**: Increments for incremental improvements, clarifications, or non-breaking additions within a major release
 - **Patch (third number - v1.1.1)**: increase the version when you apply bug fixes that are backwards compatible.
 
-<img width="660" height="413" alt="image" src="https://github.com/user-attachments/assets/0fce57cc-cc29-4553-9f1e-f195e0971498" />
+![Versioning](../figures/Versioning.png)
 
 ### **Specification Maturity Stages**
 

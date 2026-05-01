@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "pages": [
+    "Home",
+    "what-is-margo",
+    "personas-and-definitions",
+    "overview",
+    "concepts",
+    "specification",
+    "make-a-contribution"
+  ]
+}

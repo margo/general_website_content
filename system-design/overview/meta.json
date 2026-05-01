@@ -1,0 +1,10 @@
+{
+    "title": "Overview",
+    "pages": [
+      "envisioned-system-design",
+      "applications",
+      "workload-fleet-management",
+      "edge-compute-devices",
+      "workload-observability"
+    ]
+  }

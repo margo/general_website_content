@@ -35,8 +35,8 @@ Some [providers][provider-model] might support that multiple [Workload][workload
 
 [Components][component] might have different shapes depending on their type and on which stage is being considered:
 
-1. Helm v3 as [Component][component]: a [Helm Chart](https://helm.sh/docs/topics/charts/)
-2. Helm v3 as [Workload][workload]: all container images required by the to-be-started pods.
+1. Helm as [Component][component]: a [Helm Chart](https://helm.sh/docs/topics/charts/)
+2. Helm as [Workload][workload]: all container images required by the to-be-started pods.
 3. Compose as [Component][component]: a [Compose Archive][application-package]
 4. Compose as [Workload][workload]: a so-called [Compose file](https://github.com/compose-spec/compose-spec/blob/main/spec.md#compose-file) and all the container images required by the to-be-started [services](https://github.com/compose-spec/compose-spec/blob/main/05-services.md).
 
@@ -87,7 +87,7 @@ C4Component
             System_Boundary(c1, "Application Description") {
                 Component(ad, "Application Description", "ApplicationDescription", "YAML document")
                 System_Boundary(c2, "deploymentProfiles") {
-                    System_Boundary(c3, "helm.v3") {
+                    System_Boundary(c3, "helm") {
                         Component(wldh1, "Helm WorkloadArtifact 1", "Section in YAML document")
                     }
                     System_Boundary(c4, "compose") {
@@ -200,15 +200,15 @@ C4Context
 
 In this stage the [providers][provider-model] are responsible for managing the individual [Workloads][workload].
 
-On a Helm v3 [Deployment Profiles][deployment-profile], a [Workload Fleet Management Client][wfmc] implementation could utilize the Helm API to start the individual Helm Charts.
+On a Helm [Deployment Profiles][deployment-profile], a [Workload Fleet Management Client][wfmc] implementation could utilize the Helm API to start the individual Helm Charts.
 
 On a Compose [Deployment Profiles][deployment-profile], a [Workload Fleet Management Client][wfmc] implementation could utilize the Compose CLI to start the individual [Workloads][workload].
 
-The following diagram shows the result of reaching the desired state for an [Application][application] with a Helm v3 [Deployment Profile][deployment-profile] (the result of `helm install`).
+The following diagram shows the result of reaching the desired state for an [Application][application] with a Helm [Deployment Profile][deployment-profile] (the result of `helm install`).
 
 ```mermaid
 C4Component
-    title Application Deployment: Helm v3 deployment profile
+    title Application Deployment: Helm deployment profile
 
     UpdateLayoutConfig($c4BoundaryInRow="3", $c4ShapeInRow="1")
 

@@ -2,7 +2,7 @@
 
 The purpose of device capabilities reporting is to ensure the Workload Fleet Management (WFM) solution has the information needed to pair workloads with compatible edge devices. The device's capabilities are reported to the WFM web service using the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md).
 
-**Note:** _Devices must only report capabilities that are explicitly exposed and accessible to Margo workloads. If a device feature is isolated from the Margo runtime environment, it must be excluded from the capabilities report. For example, an onboard camera used exclusively for local device security—and completely isolated from Margo—must not be reported as an available capability. This ensures workloads are not scheduled against unavailable or restricted hardware resources._
+**Note:** _Devices report only the capabilities that are explicitly exposed and accessible to Margo workloads. If a device feature is isolated from the Margo runtime environment, it is excluded from the capabilities report. For example, an onboard camera used exclusively for local device security—and completely isolated from Margo—is not reported as an available capability. This ensures workloads are not scheduled against unavailable or restricted hardware resources._
 
 ### Device Capability Reporting
 

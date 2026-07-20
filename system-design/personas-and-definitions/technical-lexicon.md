@@ -97,3 +97,39 @@ The Component Registry can be implemented, e.g., as an OCI Registry.
 
 #### Container Image Registry
 A Container Image Registry hosts container images. [Components](#component) which are provided  as Helm Charts or Compose Archives link to such container images.
+
+## Identity Terms
+
+The following terms belong to the [Margo Identity and Authorization Framework](../specification/identity/identity-framework.md) (MIAF), Margo's common foundation for identity, authentication, and authorization. MIAF builds on the open [SPIFFE](https://spiffe.io/) standard.
+
+#### Trust Domain
+
+A governed security boundary within which identities are issued and mutually recognized. A Trust Domain defines its trust anchors, the namespace for identities, and the policies that govern them. Identities from different vendors are recognized across the domain because they validate against the same published trust material.
+
+#### SPIFFE ID
+
+A URI of the form `spiffe://<trust-domain>/<path>` that names an identity within a [Trust Domain](#trust-domain). Margo identities issued under a MIAF profile use a path beginning with `/margo/`.
+
+#### SVID
+
+A SPIFFE Verifiable Identity Document: the verifiable credential representing an identity within a [Trust Domain](#trust-domain). Margo uses the X.509-SVID form, an X.509 certificate carrying a [SPIFFE ID](#spiffe-id) in its URI SAN, which components present when they authenticate over mutual TLS.
+
+#### Trust Bundle
+
+The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Distributed via the SPIFFE Bundle Map.
+
+#### Margo Identity Service
+
+The identity-authority role within a [Trust Domain](#trust-domain), abbreviated MIS. The MIS issues [SVIDs](#svid) and publishes the [Trust Bundle](#trust-bundle) and discovery document. It is defined by these responsibilities, not by a specific product: a certificate authority, a SPIFFE service such as SPIRE, or an operator's own provisioning workflow can fulfil it.
+
+#### Principal
+
+A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain). [Edge Compute Devices](#edge-compute-device), [Workload Fleet Managers](#workload-fleet-manager), and WFM Clients are all principals.
+
+#### WFM Identity
+
+The identity of a [Workload Fleet Manager](#workload-fleet-manager) within its [Trust Domain](#trust-domain), of the form `spiffe://<trust-domain>/margo/wfm/<wfm-id>`. It anchors the namespace under which that WFM's client identities are issued. See the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).
+
+#### WFM Client Identity
+
+The identity of a WFM Client relationship within a [Trust Domain](#trust-domain), of the form `spiffe://<trust-domain>/margo/wfm/<wfm-id>/client/<wfm-client-id>`, named under the [WFM](#wfm-identity) that issues it. See the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).

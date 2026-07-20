@@ -1,43 +1,76 @@
 # Device Client Onboarding
 
-To enable workload management, the device's client first establishes trust and completes an onboarding process with the End Users' selected Workload Fleet Manager. This onboarding process enables late binding, which is a critical Margo non-functional requirement that enables a device to bind to any Margo-compatible Workload Fleet Manager. 
+To enable workload management, a device's client establishes trust and a managing relationship with the End User's selected Workload Fleet Manager. This supports late binding, a critical Margo non-functional requirement that lets a device bind to any Margo-compatible Workload Fleet Manager.
 
-The onboarding process includes several core functions:
+Onboarding covers three core functions:
 
-- Establishing trust between the device and the WFM
-- Registering the device client and assigning a unique identifier
-- Reporting device capabilities to enable workload placement decisions
+- establishing mutual trust between the device's client and the WFM;
+- giving the WFM Client a verifiable identity the WFM recognizes; and
+- reporting device capabilities so the WFM can make workload placement decisions.
 
-## Trust Establishment
+## Identity and trust
 
-Initial trust is established between the device's Workload Fleet Management (WFM) Client and the WFM using server-side TLS.
-Before the WFM Client can connect securely, it obtains the WFM's root CA certificate. This trust anchor can be:
+Identity for the device's client comes from the [Margo Identity and Authorization Framework (MIAF)](../../specification/identity/identity-framework.md). Rather than a trust anchor and an identifier that live only at one WFM, MIAF issues identities at the level of a **Trust Domain**: a governed boundary within which identities are issued and mutually recognized across vendors.
 
-- downloaded via the Certificate API, provided that an existing trusted channel is available, or
-- delivered out-of-band (e.g., preloaded by the device owner or transferred via USB)
+Each WFM Client holds an **X.509-SVID**: an X.509 certificate that carries a SPIFFE ID naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). There is no in-band request in which a device submits a certificate and receives an assigned identifier; the identity is established out of band, through the operator's provisioning channel.
 
-Importing the WFM's root CA certificate enables the WFM Client to authenticate the WFM during TLS connections. Mutual TLS (mTLS) is deliberately avoided, as some deployment environments include network components or intermediaries that may not support or forward client-certificate authentication.
-Instead, transport security and server authentication are provided by server-side TLS, while client authentication and request integrity are performed at the application layer: the WFM Client uses its own X.509 certificate to create HTTP message signatures for each request. This approach maintains strong, certificate-based authenticity and integrity while accommodating a wide range of network architectures.
+## Establishing trust
 
+Trust between the WFM Client and the WFM is **mutual**, carried at the transport layer by mTLS. Each side presents its SVID and validates the other's against the Trust Domain's **Trust Bundle**, the set of trust anchors published for the domain.
 
-## Certificates required
+Before it can validate anything, the client needs the Trust Bundle. An operator can deliver it out of band through the provisioning channel, or the client can retrieve it over HTTPS. Because an HTTPS retrieval predates any MIAF-issued trust, the client authenticates that connection using an initial trust mechanism set up out of band: a configured set of trust anchors, or operator-provisioned certificate pins. Once the client holds the bundle, it is the authoritative source for validating identities within the Trust Domain.
 
-Both the WFM server and the WFM Client use X.509 certificates, but for different purposes. The WFM's certificate authenticates the server during TLS sessions. Each device client possesses a unique X.509 certificate used to sign its HTTP requests, enabling the WFM to verify the origin and integrity of every message. These certificates provide complementary security properties: TLS ensures transport confidentiality and server authenticity, while application-layer signatures provide client authentication and payload integrity. Private keys remain securely stored on the device, and all signing operations occur locally, reducing exposure to key compromise.
+When the client connects to the WFM:
 
+- it validates the WFM's SVID against the Trust Bundle and confirms the WFM is the one named in its own SVID, so it does not connect to the wrong WFM; and
+- the WFM validates the client's SVID against the Trust Bundle and confirms the client belongs to its own namespace.
 
-## Unique Identifiers
+Belonging to the namespace is not the same as permission to use the API. A valid SVID tells the WFM the client was issued for it, but the WFM serves a client only once its operator has added that client to an **accepted-client policy**. This policy is where the operator decides which clients a WFM manages, and removing a client from it is how the operator later ends the relationship.
 
-The Workload Fleet Manager assigns a globally unique identifier to the device's management client during the onboarding process. This is needed to ensure unique interactions between each device with the Fleet Manager. 
+mTLS is used deliberately here: it authenticates both parties at the transport layer and removes the need for the WFM Client to sign each request at the application layer. In topologies where a TLS-offloading reverse proxy terminates the connection, the proxy validates the client's SVID and forwards the authenticated identity to the WFM backend over an operator-trusted boundary.
 
-## Device Capability Reporting
+## Capability reporting
 
-After onboarding, the device client reports its capabilities to the WFM server using the device capability reporting API.
+Once trust is established, the device's client reports its capabilities to the WFM using the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible devices.
+
+## The flow, end to end
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Operator
+    participant Client as WFM Client
+    participant MIS as Margo Identity Service
+    participant WFM
+
+    Note over Operator,WFM: Provisioning (out of band)
+    Operator->>Client: Install SVID, initial trust anchors,<br/>and endpoint URL
+    Operator->>WFM: Install WFM SVID,<br/>add client to accepted-client policy
+
+    Note over Client,MIS: Trust material retrieval
+    Client->>MIS: GET discovery document (optional)
+    MIS-->>Client: Trust Domain + Trust Bundle URI
+    Client->>MIS: GET Trust Bundle
+    MIS-->>Client: Trust anchors for the Trust Domain
+
+    Note over Client,WFM: Mutual authentication (mTLS)
+    Client->>WFM: Connect, presenting client SVID
+    WFM-->>Client: Presents WFM SVID
+    Client->>Client: Validate WFM SVID, confirm WFM matches its own SVID
+    WFM->>WFM: Validate client SVID, check namespace and policy
+
+    Note over Client,WFM: Management Interface exchanges
+    Client->>WFM: Report device capabilities
+    Client->>WFM: Poll desired state, report deployment status
+```
 
 ## Relevant Links
 
 Please follow the subsequent links to view more technical information on the concepts described above:
 
-- [API Security Details](../../specification/margo-management-interface/api-requirements-and-security.md)
-- [Certificate API](../../specification/margo-management-interface/certificate-api.md)
-- [Device Onboarding API](../../specification/margo-management-interface/device-client-onboarding.md)
-- [Device Capabilities](../../specification/margo-management-interface/device-capabilities.md)
+- [Margo Identity and Authorization Framework](../../specification/identity/identity-framework.md)
+- [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md)
+- [Trust Bundle and Discovery Endpoints](../../specification/identity/trust-bundle-and-discovery.md)
+- [Identity Lifecycle and Operator Playbooks](../../specification/identity/identity-lifecycle.md)
+- [API Requirements and Security](../../specification/margo-management-interface/api-requirements-and-security.md)
+- [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md)

@@ -116,7 +116,7 @@ A SPIFFE Verifiable Identity Document: the verifiable credential representing an
 
 #### Trust Bundle
 
-The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Distributed via the SPIFFE Bundle Map.
+The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Distributed as a SPIFFE bundle (a JWK Set).
 
 #### Margo Identity Service
 

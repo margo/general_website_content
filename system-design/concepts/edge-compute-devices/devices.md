@@ -8,7 +8,7 @@ This describes the type of workload manifests the device can interpret and apply
 
 ## Supported Runtimes
 
-This describes the workload runtime available on the device to execute deployed workloads. Margo currently supports the OCI runtime, with additional runtimes expected in the future. As with deployment types, a device may report more than one runtime.
+This describes the workload runtime available on the device to execute deployed workloads. Margo currently supports the OCI runtime. Additional runtimes may be added in the future. As with deployment types, a device may report more than one runtime.
 
 ## Compute Resources
 

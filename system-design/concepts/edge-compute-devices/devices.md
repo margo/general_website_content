@@ -12,7 +12,7 @@ This describes the workload runtime available on the device to execute deployed 
 
 ## Compute Resources
 
-To ensure a device can host the workloads assigned to it, each Margo device reports the compute resources it makes available to Margo, including CPU, memory, and storage, along with peripherals and network interfaces. These resources are reported during the final stage of onboarding and updated whenever a change occurs on the device, so the fleet manager can always match workload requirements against real, available capacity.
+To ensure a device can host the workloads assigned to it, each workload hosting device reports the compute resources it makes available to Margo, including CPU, memory, and storage, along with peripherals and network interfaces. These resources are reported during the final stage of onboarding and updated whenever a change occurs on the device, so the fleet manager can always match workload requirements against real, available capacity.
 
 ## Gateway Devices
 

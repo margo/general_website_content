@@ -8,7 +8,7 @@ The purpose of device capabilities reporting is to ensure the Workload Fleet Man
 
 The device reports its capabilities and characteristics, via the device API, when onboarding the device with the Workload Fleet Management solution. Additionally, during the lifecycle of the edge device, if there is a change that impacts the reported characteristics, the device updates the Workload Fleet Manager with the latest information via the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md).
 
-The following information is exchanged:
+A workload hosting device exchanges the following information:
 
 - Device Id
 - Device Vendor

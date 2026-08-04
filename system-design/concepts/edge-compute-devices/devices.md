@@ -1,30 +1,23 @@
 # Devices
 
-Margo devices are defined by the roles they can facilitate within the Margo architecture. Each role has its own requirements which enable unique functionality. Edge compute within Margo is initially referenced as a "Device" which represents the initial lifecycle stage. Once the device is onboarded within the workload fleet manager, it assumes a role based on capabilities.
+Margo devices are defined by the capabilities they provide to the Margo ecosystem. When a device onboards with a workload fleet manager, it reports what it can do, and the fleet manager uses that information to decide which workloads the device can host. Reported capabilities fall into the following categories.
 
-Supported device roles are shown below:
+## Supported Deployment Types
 
-- Standalone Cluster
-- Standalone Device
+This describes the type of workload manifests the device can interpret and apply to its local workload runtime. Common examples are Helm and Compose manifests. A device may support more than one deployment type, giving the fleet manager flexibility in how workloads are packaged and delivered.
 
-> Note: Additional device roles will be introduced over time. For example, the following roles are currently being discussed for future consideration:
->
->- Multinode Cluster Leader
->
->- Multinode Cluster Worker
->
->- Leaf Device
->
->- Gateway
+## Supported Runtimes
 
-## Standalone Cluster Role Details
+This describes the workload runtime available on the device to execute deployed workloads. Margo currently supports the OCI runtime. Additional runtimes may be added in the future. As with deployment types, a device may report more than one runtime.
 
-The standalone cluster role within Margo describes devices with enough compute capacity to enable a wide range of functions within the ecosystem. Standalone clusters are single devices acting as both a cluster leader and worker node.
+## Compute Resources
 
-Currently, standalone cluster devices are expected to run Kubernetes as the orchestration platform. This role is designed to provide flexibility and scalability for Margo compliant workloads.
+To ensure a device can host the workloads assigned to it, each workload hosting device reports the compute resources it makes available to Margo, including CPU, memory, and storage, along with peripherals and network interfaces. These resources are reported during the final stage of onboarding and updated whenever a change occurs on the device, so the fleet manager can always match workload requirements against real, available capacity.
 
-## Standalone Device Role Details
+## Gateway Devices
 
-The standalone device role represents a device that can host Margo compliant workloads. This device role is not intended to be utilized within a clustered configuration and typically consists of devices with limited resources to run workloads.
+Gateway devices add flexibility at the edge compute layer by connecting devices that do not host a Margo management client of their own. A gateway can act as an **opaque gateway**, which combines the capabilities of several child devices and presents them to the fleet manager as a single device, or as a **see-thru gateway**, which reports each child device individually so the fleet manager can see and target them as distinct devices. For the full description of gateway behavior, see [Gateways](../gateways/gateways.md).
 
-Currently, standalone devices are expected to run Compose compliant software as the orchestration platform. This role is designed for devices where a full Kubernetes cluster is not required or feasible.
+
+
+

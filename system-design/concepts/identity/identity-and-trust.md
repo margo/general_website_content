@@ -14,31 +14,31 @@ MIAF builds on [SPIFFE](https://spiffe.io/), an open cloud-native identity stand
 
 MIAF has four elements that work together:
 
-- **Trust Domain**: the security boundary. It defines the trust anchors, the identity namespace, and the policies for the components within it.
-- **Margo Identity Service (MIS)**: the authority that issues identities and publishes trust material for the domain. It is a *role*, not a specific product; a certificate authority, a SPIFFE service such as SPIRE, or an operator's own provisioning workflow can all fill it.
-- **Margo components**: the WFMs, device clients, and infrastructure services that hold an identity. Each acts as a holder when it authenticates and as a verifier when it checks a peer.
-- **Trust Bundle**: the set of trust anchors the domain publishes. A verifier validates a peer's identity against it.
+- a [Trust Domain](../../personas-and-definitions/technical-lexicon.md#trust-domain) as the security boundary within which everything else operates;
+- the [Margo Identity Service (MIS)](../../personas-and-definitions/technical-lexicon.md#margo-identity-service), the role that issues identities and publishes the domain's trust material; a certificate authority, a SPIFFE service such as SPIRE, or an operator's own provisioning workflow can all fill it;
+- the **Margo components** (WFMs, device clients, and infrastructure services) that hold the identities, each acting as a holder when it authenticates and as a verifier when it checks a peer; and
+- the [Trust Bundle](../../personas-and-definitions/technical-lexicon.md#trust-bundle), the published trust material a verifier validates a peer's identity against.
 
-An identity is expressed as a **SPIFFE ID**, a URI that names a component within its Trust Domain, and is carried by an **X.509-SVID**, an X.509 certificate with that SPIFFE ID embedded in it. Components authenticate to each other with mutual TLS, each presenting its SVID and validating the peer's against the Trust Bundle. Authorization then happens locally: each component decides what a verified identity is allowed to do. There is no central authorization server in the path.
+An identity is named by a [SPIFFE ID](../../personas-and-definitions/technical-lexicon.md#spiffe-id) and carried by an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid). Components authenticate to each other with mutual TLS, each presenting its SVID and validating the peer's against the Trust Bundle. Authorization then happens locally: each component decides what a verified identity is allowed to do. There is no central authorization server in the path.
 
 ```mermaid
 flowchart LR
  Client["`**Margo Client Component**
- (e.g., WFM Client, DFM Client, Telemetry Agent)`"]
+ (e.g., WFM Client, DFM Client, OTel Collector)`"]
  Server["`**Margo Server Component**
  (e.g., WFM, DFM, Observability Platform, Component Registry)`"]
  MIS["`**Margo Identity Service (MIS)**
  Issues SVIDs, publishes Trust Bundle & discovery`"]
  TD["`**Trust Domain**
  Defines trust anchors, policies, and namespace`"]
- X509["`**X.509 SVID**
+ X509["`**X.509-SVID**
  Certificate binding SPIFFE ID to key pair`"]
  TB["`**Trust Bundle**
  X.509 trust anchors`"]
 
- Client -->|"holds X.509 SVID"| X509
- MIS -->|"issues X.509 SVID"| X509
- Client -->|"authenticates using X.509 SVID (mTLS)"| Server
+ Client -->|"holds X.509-SVID"| X509
+ MIS -->|"issues X.509-SVID"| X509
+ Client -->|"authenticates using X.509-SVID (mTLS)"| Server
  Server -->|"verifies SVID using Trust Bundle of"| TD
  TD -->|"publishes"| TB
 
@@ -53,13 +53,7 @@ flowchart LR
 
 ## Fitting the MIS to a deployment
 
-Because the MIS is a role rather than a product, an operator can fulfil it in whatever way suits their environment, for example:
-
-| Pattern | How it works | Where it fits |
-| :--- | :---------- | :--------------- |
-| **Self-signed root CA** | A certificate authority acts as its own root and issues identities directly. | Self-contained or air-gapped sites. |
-| **Intermediate CA under enterprise PKI** | A certificate authority issues identities that chain up to an existing corporate root. | Enterprises with established PKI. |
-| **SPIFFE-conformant identity service** | A service such as SPIRE issues identities, configured with Margo's conventions. | Cloud-native or service-mesh environments. |
+Because the MIS is a role rather than a product, an operator can fulfil it in whatever way suits their environment: as a self-signed root CA, as an intermediate CA under an enterprise PKI, or with a SPIFFE-conformant identity service such as SPIRE. The [deployment patterns](../../specification/identity/identity-framework.md#deployment-patterns-informative) in the framework describe these options and where each fits.
 
 ## Room to grow
 

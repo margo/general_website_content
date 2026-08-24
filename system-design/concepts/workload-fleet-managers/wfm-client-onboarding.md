@@ -10,13 +10,13 @@ Onboarding covers three core functions:
 
 ## Identity and trust
 
-Identity for the device's client comes from the [Margo Identity and Authorization Framework (MIAF)](../../specification/identity/identity-framework.md). Rather than a trust anchor and an identifier that live only at one WFM, MIAF issues identities at the level of a **Trust Domain**: a governed boundary within which identities are issued and mutually recognized across vendors.
+Identity for the device's client comes from the [Margo Identity and Authorization Framework (MIAF)](../../specification/identity/identity-framework.md). Rather than a trust anchor and an identifier that live only at one WFM, MIAF issues identities at the level of a [Trust Domain](../../personas-and-definitions/technical-lexicon.md#trust-domain), where they are recognized across vendors.
 
-Each WFM Client holds an **X.509-SVID**: an X.509 certificate that carries a SPIFFE ID naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). There is no in-band request in which a device submits a certificate and receives an assigned identifier; the identity is established out of band, through the operator's provisioning channel.
+Each WFM Client holds an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid) naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). There is no in-band request in which a device submits a certificate and receives an assigned identifier; the identity is established out of band, through the operator's provisioning channel.
 
 ## Establishing trust
 
-Trust between the WFM Client and the WFM is **mutual**, carried at the transport layer by mTLS. Each side presents its SVID and validates the other's against the Trust Domain's **Trust Bundle**, the set of trust anchors published for the domain.
+Trust between the WFM Client and the WFM is **mutual**, carried at the transport layer by mTLS. Each side presents its SVID and validates the other's against the Trust Domain's [Trust Bundle](../../personas-and-definitions/technical-lexicon.md#trust-bundle).
 
 Before it can validate anything, the client needs the Trust Bundle. An operator can deliver it out of band through the provisioning channel, or the client can retrieve it over HTTPS. Because an HTTPS retrieval predates any MIAF-issued trust, the client authenticates that connection using an initial trust mechanism set up out of band: a configured set of trust anchors, or operator-provisioned certificate pins. Once the client holds the bundle, it is the authoritative source for validating identities within the Trust Domain.
 

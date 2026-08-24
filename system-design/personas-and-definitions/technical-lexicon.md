@@ -100,31 +100,31 @@ A Container Image Registry hosts container images. [Components](#component) whic
 
 ## Identity Terms
 
-The following terms belong to the [Margo Identity and Authorization Framework](../specification/identity/identity-framework.md) (MIAF), Margo's common foundation for identity, authentication, and authorization. MIAF builds on the open [SPIFFE](https://spiffe.io/) standard.
+The following terms belong to the [Margo Identity and Authorization Framework](../specification/identity/identity-framework.md) (MIAF), Margo's common foundation for identity, authentication, and authorization. MIAF builds on the open [SPIFFE](https://spiffe.io/) standard. The entries below are informative summaries; the authoritative definitions are in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### Trust Domain
 
-A governed security boundary within which identities are issued and mutually recognized. A Trust Domain defines its trust anchors, the namespace for identities, and the policies that govern them. Identities from different vendors are recognized across the domain because they validate against the same published trust material.
+A governed security boundary within which identities are issued and mutually recognized: it defines the trust anchors, the identity namespace, and the policies that govern them. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### SPIFFE ID
 
-A URI of the form `spiffe://<trust-domain>/<path>` that names an identity within a [Trust Domain](#trust-domain). Margo identities issued under a MIAF profile use a path beginning with `/margo/`.
+A URI of the form `spiffe://<trust-domain>/<path>` that names an identity within a [Trust Domain](#trust-domain). Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### SVID
 
-A SPIFFE Verifiable Identity Document: the verifiable credential representing an identity within a [Trust Domain](#trust-domain). Margo uses the X.509-SVID form, an X.509 certificate carrying a [SPIFFE ID](#spiffe-id) in its URI SAN, which components present when they authenticate over mutual TLS.
+A SPIFFE Verifiable Identity Document: the verifiable credential representing an identity within a [Trust Domain](#trust-domain), which a component presents when it authenticates over mutual TLS. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### Trust Bundle
 
-The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Distributed as a SPIFFE bundle (a JWK Set).
+The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### Margo Identity Service
 
-The identity-authority role within a [Trust Domain](#trust-domain), abbreviated MIS. The MIS issues [SVIDs](#svid) and publishes the [Trust Bundle](#trust-bundle) and discovery document. It is defined by these responsibilities, not by a specific product: a certificate authority, a SPIFFE service such as SPIRE, or an operator's own provisioning workflow can fulfil it.
+The identity-authority role within a [Trust Domain](#trust-domain), abbreviated MIS: it issues [SVIDs](#svid) and publishes the [Trust Bundle](#trust-bundle) and discovery document, and is defined by these responsibilities rather than by a specific product. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### Principal
 
-A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain). [Workload Fleet Managers](#workload-fleet-manager) and WFM Clients are the principals for which an identity profile exists today; an [Edge Compute Device](#edge-compute-device) participates through the WFM Client it hosts and becomes a principal only under a future identity profile.
+A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain); an [Edge Compute Device](#edge-compute-device) participates through the WFM Client it hosts. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
 
 #### WFM Identity
 

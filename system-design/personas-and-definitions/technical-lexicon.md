@@ -124,7 +124,7 @@ The identity-authority role within a [Trust Domain](#trust-domain), abbreviated 
 
 #### Principal
 
-A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain). [Edge Compute Devices](#edge-compute-device), [Workload Fleet Managers](#workload-fleet-manager), and WFM Clients are all principals.
+A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain). [Workload Fleet Managers](#workload-fleet-manager) and WFM Clients are the principals for which an identity profile exists today; an [Edge Compute Device](#edge-compute-device) participates through the WFM Client it hosts and becomes a principal only under a future identity profile.
 
 #### WFM Identity
 

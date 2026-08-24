@@ -1,4 +1,4 @@
-# Device Client Onboarding
+# WFM Client Onboarding
 
 To enable workload management, a device's client establishes trust and a managing relationship with the End User's selected Workload Fleet Manager. This supports late binding, a critical Margo non-functional requirement that lets a device bind to any Margo-compatible Workload Fleet Manager.
 

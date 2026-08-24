@@ -71,4 +71,4 @@ The same foundation also reaches new kinds of participant. Giving a workload a v
 
 - The normative rules are in the [Margo Identity and Authorization Framework](../../specification/identity/identity-framework.md).
 - How WFMs and device clients are named and recognized is in the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md).
-- How a device client establishes trust in practice is described in [Device Client Onboarding](../workload-fleet-managers/device-client-onboarding.md).
+- How a device client establishes trust in practice is described in [WFM Client Onboarding](../workload-fleet-managers/wfm-client-onboarding.md).

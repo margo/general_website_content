@@ -128,8 +128,8 @@ A non-human Margo component that holds, or is being provisioned with, an identit
 
 #### WFM Identity
 
-The identity of a [Workload Fleet Manager](#workload-fleet-manager) within its [Trust Domain](#trust-domain), of the form `spiffe://<trust-domain>/margo/wfm/<wfm-id>`. It anchors the namespace under which that WFM's client identities are issued. See the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).
+The identity of a [Workload Fleet Manager](#workload-fleet-manager) within its [Trust Domain](#trust-domain). It anchors the namespace under which that WFM's client identities are issued. The naming rules are in the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).
 
 #### WFM Client Identity
 
-The identity of a WFM Client relationship within a [Trust Domain](#trust-domain), of the form `spiffe://<trust-domain>/margo/wfm/<wfm-id>/client/<wfm-client-id>`, named under the [WFM](#wfm-identity) that issues it. See the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).
+The identity of a WFM Client relationship within a [Trust Domain](#trust-domain), named under the [WFM](#wfm-identity) that issues it. The naming rules are in the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).

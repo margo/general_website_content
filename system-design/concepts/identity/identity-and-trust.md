@@ -4,7 +4,7 @@ Margo components need a way to prove who they are to one another. A Workload Fle
 
 ## Why identity lives at the Trust Domain level
 
-A single industrial deployment often mixes hardware and software from several vendors. One environment might run more than one Workload Fleet Manager, from different suppliers, each managing its own devices. If each WFM defined its own identities and distributed its own trust anchors, nothing would recognize anything issued elsewhere, and every pairing of components would need its own bespoke trust setup.
+A single industrial deployment often mixes hardware and software from several vendors: devices from different suppliers and applications from others, all managed through a Workload Fleet Manager. If each vendor's components defined their own identities and distributed their own trust anchors, nothing would recognize anything issued elsewhere, and every pairing of components would need its own bespoke trust setup.
 
 MIAF avoids that by lifting identity to the level of a **Trust Domain**: a governed boundary within which identities are issued and mutually recognized. Every component in the domain validates identities against the same published trust material, so a device and a WFM from different vendors can recognize each other without a private arrangement between the two suppliers.
 

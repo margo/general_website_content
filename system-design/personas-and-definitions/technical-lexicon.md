@@ -97,3 +97,39 @@ The Component Registry can be implemented, e.g., as an OCI Registry.
 
 #### Container Image Registry
 A Container Image Registry hosts container images. [Components](#component) which are provided  as Helm Charts or Compose Archives link to such container images.
+
+## Identity Terms
+
+The following terms belong to the [Margo Identity and Authorization Framework](../specification/identity/identity-framework.md) (MIAF), Margo's common foundation for identity, authentication, and authorization. MIAF builds on the open [SPIFFE](https://spiffe.io/) standard. The entries below are informative summaries; the authoritative definitions are in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### Trust Domain
+
+A governed security boundary within which identities are issued and mutually recognized: it defines the trust anchors, the identity namespace, and the policies that govern them. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### SPIFFE ID
+
+A URI of the form `spiffe://<trust-domain>/<path>` that names an identity within a [Trust Domain](#trust-domain). Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### SVID
+
+A SPIFFE Verifiable Identity Document: the verifiable credential representing an identity within a [Trust Domain](#trust-domain), which a component presents when it authenticates over mutual TLS. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### Trust Bundle
+
+The set of X.509 trust anchors a [Trust Domain](#trust-domain) publishes so that verifiers can validate [SVIDs](#svid) issued within the domain. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### Margo Identity Service
+
+The identity-authority role within a [Trust Domain](#trust-domain), abbreviated MIS: it issues [SVIDs](#svid) and publishes the [Trust Bundle](#trust-bundle) and discovery document, and is defined by these responsibilities rather than by a specific product. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### Principal
+
+A non-human Margo component that holds, or is being provisioned with, an identity in a [Trust Domain](#trust-domain); an [Edge Compute Device](#edge-compute-device) participates through the WFM Client it hosts. Defined in the [MIAF terminology](../specification/identity/identity-framework.md#terminology).
+
+#### WFM Identity
+
+The identity of a [Workload Fleet Manager](#workload-fleet-manager) within its [Trust Domain](#trust-domain). It anchors the namespace under which that WFM's client identities are issued. The naming rules are in the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).
+
+#### WFM Client Identity
+
+The identity of a WFM Client relationship within a [Trust Domain](#trust-domain), named under the [WFM](#wfm-identity) that issues it. The naming rules are in the [WFM Identity Profile](../specification/identity/wfm-identity-profile.md).

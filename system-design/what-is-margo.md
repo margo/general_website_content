@@ -8,9 +8,9 @@ Find out more about the Margo initiative and how to become engaged at [margo.org
 
 > **Disclaimer**
 
-Preview Release 1 of the Margo Specification draft in the [Margo Specification](https://github.com/margo/specification) repository is a work in progress.
+Preview Release 3 of the Margo Specification draft in the [Margo Specification](https://github.com/margo/specification) repository is a work in progress.
 
-The APIs are currently incomplete and may still change. However, implementing PR1 would be very useful for building prototypes. It offers a practical way to get a head start and to confirm that the specification has the appropriate scope. GA1 will include stable APIs and conformance tools.
+The APIs are currently incomplete and may still change. However, implementing PR3 would be very useful for building prototypes. It offers a practical way to get a head start and to confirm that the specification has the appropriate scope. GA1 will include stable APIs and conformance tools.
 
 ## Mission Statement
 

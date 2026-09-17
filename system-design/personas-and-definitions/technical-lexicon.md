@@ -8,14 +8,14 @@ Below are concepts and terms utilized throughout the Margo Specification along w
 
 Interoperability is an overloaded term that has different meanings depending on the context. For Margo, interoperability is about achieving the following:
 
-- Defining a common approach for packaging [Components](#component) so they can be deployed as [Workloads](#workload) to any compatible Margo-compliant [Edge Compute Devices](#edge-compute-device) via any Margo-compliant [Workload Fleet Manager](#workload-fleet-manager).
+- Defining a common approach for packaging [Components](#component) so they can be deployed as [Workloads](#workload) to any compatible Margo-compliant [Target Compute](#target-compute) via any Margo-compliant [Workload Fleet Manager](#workload-fleet-manager).
 - Defining a common approach for packaging device software and firmware updates so they can be deployed to any Margo-compliant [Edge Compute Devices](#edge-compute-device) via any Margo-compliant [Device Fleet Manager](#device-fleet-manager).
 - Defining a common API to enable communication between any Margo-compliant [Edge Compute Devices](#edge-compute-device) and any Margo-compliant [fleet management](#fleet-management) software.
 - Defining a common approach for collecting and transmitting diagnostics and observability data from a Margo-compliant [Edge Compute Device](#edge-compute-device)
 
 #### Orchestration
 
-Orchestration is an overloaded term that has different meanings depending on the context. For Margo, orchestration is about the deployment of [Workloads](#workload) and device software updates to Margo-compliant [Edge Compute Devices](#edge-compute-device) via Margo-compliant [fleet management](#fleet-management) software. Margo depends on container orchestration platforms such as Kubernetes, Docker and Podman existing on the [Edge Compute Devices](#edge-compute-device) and is not an attempt to duplicate what these platforms provide.
+Orchestration is an overloaded term that has different meanings depending on the context. For Margo, orchestration is about the deployment of [Workloads](#workload) to Margo-compliant [Target Compute](#target-compute), and of device software updates to Margo-compliant [Edge Compute Devices](#edge-compute-device), via locally supplied [Provider services](#provider-model). Margo depends on container orchestration platforms such as Kubernetes, Docker and Podman existing on the [Edge Compute Devices](#edge-compute-device) and is not an attempt to duplicate what these platforms provide.
 
 #### Fleet Management
 
@@ -23,11 +23,11 @@ Fleet Management represents a concept or pattern that enables users to manage on
 
 ##### State Seeking
 
-The state seeking methodology, adopted via Margo, is enabled first by the [Workload Fleet Manager](#workload-fleet-manager) when it establishes the "Desired state". The [Edge Device](#edge-compute-device) then reconciles it's "Current state" with the "Desired state" provided by the Fleet Manager and reports the status.
+The state seeking methodology, adopted via Margo, is enabled first by the [Workload Fleet Manager](#workload-fleet-manager) when it establishes the "Desired state". The client managing the [Target Compute](#target-compute) then reconciles its "Current state" with the "Desired state" provided by the Fleet Manager and reports the status.
 
 ##### Provider Model
 
-The provider model within Margo describes a service that is able to orchestrate or implement the desired state within the [Edge Device](#edge-compute-device).
+The provider model within Margo describes a service that is able to orchestrate or implement the desired state on the [Target Compute](#target-compute).
 Current providers supported:
 
 - Helm Client
@@ -45,7 +45,7 @@ An Application Package is used to distribute an [application](#application). The
 
 #### Component
 
-A Component is a piece of software tailored to be deployed within a customer's environment on an [Edge Compute Device](#edge-compute-device).
+A Component is a piece of software tailored to be deployed within a customer's environment on [Target Compute](#target-compute).
 Currently Margo-supported components are:
 
 - Helm Chart
@@ -56,19 +56,33 @@ A Compose Archive is a tarball file containing the Compose file, `compose.yaml`,
 
 #### Workload
 
-A Workload is an instance of a [Component](#component) running within a customer's environment on a [Edge Compute Device](#edge-compute-device).
+A Workload is an instance of a [Component](#component) running within a customer's environment on a [Target Compute](#target-compute).
+
+#### Target Compute
+
+Target Compute is the logical compute surface that Margo [Workloads](#workload) are deployed to and run on. A Target Compute surface reports the deployment types, runtimes, compute resources, peripherals, and network interfaces it makes available to Margo, and a [Workload Fleet Manager](#workload-fleet-manager) uses that information to decide which workloads it can host.
+
+Target Compute is a logical concept rather than a physical one. A single [Edge Compute Device](#edge-compute-device) may present one Target Compute surface, and a [Gateway Service](#gateway-service) may present several downstream devices as separate Target Compute surfaces or combine them into one.
+
+#### Target Name
+
+A Target Name is the human assigned name given to a [Target Compute](#target-compute) surface so operators can recognize it and select it when deploying workloads. It is a label chosen by people, not a generated identifier, and it carries no security meaning. Component identity used for authentication comes from the [Margo Identity and Authorization Framework](../concepts/identity/identity-and-trust.md) instead.
 
 #### Edge Compute Device
 
-Edge Compute Devices are represented by compute hardware that runs within the customer's environment to enable the system with Margo Compliant [Workloads](#workload). Edge Compute Devices host the Margo compliant management agents, container orchestration platform, and device operating systems. Margo Edge Compute Devices are defined by the capabilities they provide within the Margo Architecture.
+Edge Compute Devices are represented by compute hardware that runs within the customer's environment to enable the system with Margo Compliant [Workloads](#workload). Edge Compute Devices host the Margo compliant WFM Client, container orchestration platform, and device operating systems. An Edge Compute Device or devices provides the [Target Compute](#target-compute) that workloads are deployed to, either directly or through a [Gateway Service](#gateway-service).
+
+#### Gateway Service
+
+A [Gateway Service](../concepts/gateways/gateways.md) connects Target Compute surfaces that do not host a Margo management client of their own, translating between those compute surfaces and a [Workload Fleet Manager](#workload-fleet-manager) so they can still provide [Target Compute](#target-compute). The service may run on a server, within a device, or on hardware dedicated to it, which is commonly called a gateway device.
 
 #### Workload Fleet Manager
 
-Workload Fleet Manager (WFM) represents a software offering that enables End Users to configure, deploy, and manage edge [Workloads](#workload) as a fleet on their registered [Edge Devices](#edge-compute-device).
+Workload Fleet Manager (WFM) represents a software offering that enables End Users to configure, deploy, and manage edge [Workloads](#workload) as a fleet across their registered [Target Compute](#target-compute) surfaces.
 
 ##### Workload Fleet Management Client
 
-The Workload Fleet Management client is a service that runs on the [Edge Compute Device](#edge-compute-device) which communicates with the [Workload Fleet Manager](#workload-fleet-manager) to receive [Components](#component) that will be instantiated as [Workloads](#workload) and configurations to be applied on the [Edge Compute Device](#edge-compute-device).
+The Workload Fleet Management client is a service that runs on the edge compute surface which communicates with the [Workload Fleet Manager](#workload-fleet-manager) to receive [Components](#component) that will be instantiated as [Workloads](#workload) and configurations to be applied to the [Target Compute](#target-compute) it manages.
 
 #### Device Fleet Manager
 
@@ -86,7 +100,7 @@ The [API of the Application Registry](../specification/applications/application-
 
 #### Application Catalog
 
-An Application Catalog is a visual representation of preselected, install-ready applications, the user of the [WFM](#workload-fleet-manager) can deploy to it's managed [Edge Compute Devices](#edge-compute-device). Application Catalogs and how they function within the WFM are out of scope for Margo.
+An Application Catalog is a visual representation of preselected, install-ready applications, the user of the [WFM](#workload-fleet-manager) can deploy to its managed [Target Compute](#target-compute). Application Catalogs and how they function within the WFM are out of scope for Margo.
 
 
 #### Component Registry

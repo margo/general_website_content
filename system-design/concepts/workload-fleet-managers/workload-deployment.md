@@ -1,36 +1,36 @@
 # Workload Deployment
 
-This page describes how Margo manages the deployment and reconciliation of workloads on Edge Compute Devices.
+This page describes how Margo manages the deployment and reconciliation of workloads on Target Compute.
 
 Workload deployment in Margo is based on a declarative Desired State model.
-A Workload Fleet Manager (WFM) defines the desired workloads for each Edge Compute Device, including what should run, how each workload should be configured, and the parameters needed for deployment and lifecycle management.
-Each device runs a Workload Fleet Management Client (WFM Client) that retrieves and applies this Desired State, while reporting progress and results back to the WFM.
+A Workload Fleet Manager (WFM) defines the desired workloads for each Target Compute surface, including what should run, how each workload should be configured, and the parameters needed for deployment and lifecycle management.
+A Workload Fleet Management Client (WFM Client) retrieves and applies this Desired State for the Target Compute it manages, while reporting progress and results back to the WFM.
 This model provides a consistent and observable way to manage workloads across distributed environments.
 
 ## How it works
 
-The Workload Fleet Manager coordinates workloads across Edge Compute Devices.
-Operators use the WFM to define workloads, update deployments, and view rollout progress across devices.
-The WFM Client continuously reconciles the Desired State provided by the WFM with the workloads actually running on the device.
+The Workload Fleet Manager coordinates workloads across Target Compute surfaces.
+Operators use the WFM to define workloads, update deployments, and view rollout progress, selecting Target Compute by its Target Name.
+The WFM Client continuously reconciles the Desired State provided by the WFM with the workloads actually running on its Target Compute.
 
 The WFM and WFM Clients communicate through two key interfaces:
 
-- The [Desired State API](../../specification/margo-management-interface/desired-state.md), which distributes workload definitions to devices
-- The [Deployment Status API](../../specification/margo-management-interface/deployment-status.md), which collects deployment updates from devices
+- The [Desired State API](../../specification/margo-management-interface/desired-state.md), which distributes workload definitions to clients
+- The [Deployment Status API](../../specification/margo-management-interface/deployment-status.md), which collects deployment updates from clients
 
-Together, these interfaces establish a feedback loop between the centralized manager and the distributed devices, ensuring workload consistency and visibility at scale.
+Together, these interfaces establish a feedback loop between the centralized manager and the distributed Target Compute, ensuring workload consistency and visibility at scale.
 
 ## Desired State
 
-The Desired State defines the workloads that should run on each Edge Compute Device and the details of how they are deployed.
-It is represented by a [State Manifest](../../specification/margo-management-interface/desired-state.md#endpoints-state-manifest) that lists all workloads assigned to a device.
+The Desired State defines the workloads that should run on each Target Compute surface and the details of how they are deployed.
+It is represented by a [State Manifest](../../specification/margo-management-interface/desired-state.md#endpoints-state-manifest) that lists all workloads assigned to that Target Compute.
 The WFM exposes this manifest through the Desired State API.
 
 Each workload is defined by an [ApplicationDeployment](../../specification/margo-management-interface/desired-state.md#applicationdeployment-yaml-definition), which describes:
 
 - The Components that make up the workload, such as Helm charts or Compose-based container bundles
 - Configuration parameters and deployment profiles that control workload behavior
-- Target information identifying which devices or groups of devices the deployment applies to
+- Target information identifying which Target Compute, or groups of Target Compute, the deployment applies to
 
 The WFM can provide ApplicationDeployments in two formats:
 
@@ -42,7 +42,7 @@ Each artifact is referenced by a SHA-256 digest. The WFM Client validates these 
 
 ## Reconciliation process
 
-Each WFM Client maintains the Desired State on its Edge Compute Device by running a continuous reconciliation loop.
+Each WFM Client maintains the Desired State for its Target Compute by running a continuous reconciliation loop.
 
 1. **Retrieve the manifest:**
    The WFM Client periodically checks the WFM for updates to its State Manifest.
@@ -65,11 +65,11 @@ Each WFM Client maintains the Desired State on its Edge Compute Device by runnin
 5. **Report status:**
    As the synchronization proceeds, the WFM Client reports its deployment status to the WFM through the Deployment Status API.
 
-This continuous process allows the WFM to maintain awareness of workload rollout progress and ensures devices converge toward the Desired State.
+This continuous process allows the WFM to maintain awareness of workload rollout progress and ensures Target Compute converges toward the Desired State.
 
 ## Deployment status
 
-The Deployment Status API provides feedback from devices to the Workload Fleet Manager.
+The Deployment Status API provides feedback from WFM Clients to the Workload Fleet Manager.
 The WFM Client reports progress, success, or failure during installation, update, and removal operations.
 This feedback allows the WFM to present an aggregated view of deployment health and state across the managed fleet.
 
@@ -94,7 +94,7 @@ This information enables real-time monitoring and supports troubleshooting and a
 ```mermaid
 sequenceDiagram
     participant WFM as Workload Fleet Manager
-    participant Client as WFM Client (running on Edge Compute Device)
+    participant Client as WFM Client (managing Target Compute)
 
     loop Periodic synchronization
         Client->>WFM: Retrieve Desired State (Desired State API)

@@ -6,13 +6,15 @@ Onboarding covers three core functions:
 
 - establishing mutual trust between the device's client and the WFM;
 - giving the WFM Client a verifiable identity the WFM recognizes; and
-- reporting device capabilities so the WFM can make workload placement decisions.
+- reporting the capabilities of the Target Compute it manages so the WFM can make workload placement decisions.
 
 ## Identity and trust
 
 Identity for the device's client comes from the [Margo Identity and Authorization Framework (MIAF)](../../specification/identity/identity-framework.md). Rather than a trust anchor and an identifier that live only at one WFM, MIAF issues identities at the level of a [Trust Domain](../../personas-and-definitions/technical-lexicon.md#trust-domain), where they are recognized across vendors.
 
 Each WFM Client holds an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid) naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). There is no in-band request in which a device submits a certificate and receives an assigned identifier; the identity is established out of band, through the operator's provisioning channel.
+
+This identity is separate from the [Target Name](../../personas-and-definitions/technical-lexicon.md#target-name) reported with capabilities. The Target Name is a human assigned label that helps operators recognize and select Target Compute, while the SVID is what the WFM authenticates and authorizes. Renaming Target Compute therefore has no effect on trust.
 
 ## Establishing trust
 
@@ -31,7 +33,7 @@ mTLS is used deliberately here: it authenticates both parties at the transport l
 
 ## Capability reporting
 
-Once trust is established, the device's client reports its capabilities to the WFM using the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible devices.
+Once trust is established, the device's client reports the capabilities of its Target Compute to the WFM using the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible Target Compute.
 
 ## The flow, end to end
 
@@ -60,7 +62,7 @@ sequenceDiagram
     WFM->>WFM: Validate client SVID, check namespace and policy
 
     Note over Client,WFM: Management Interface exchanges
-    Client->>WFM: Report device capabilities
+    Client->>WFM: Report Target Compute capabilities
     Client->>WFM: Poll desired state, report deployment status
 ```
 

@@ -1,6 +1,6 @@
 # Applications
 
-An application is defined as an [Application Package](../concepts/applications/application-package.md) described through an [Application Description](../specification/applications/application-description.md) and consists of deployable [components](../personas-and-definitions/technical-lexicon.md#component). A running [component](../personas-and-definitions/technical-lexicon.md#component) is called a [workload](../personas-and-definitions/technical-lexicon.md#workload). A workload runs on a Margo compliant [edge compute device](../personas-and-definitions/technical-lexicon.md#edge-compute-device).
+An application is defined as an [Application Package](../concepts/applications/application-package.md) described through an [Application Description](../specification/applications/application-description.md) and consists of deployable [components](../personas-and-definitions/technical-lexicon.md#component). A running [component](../personas-and-definitions/technical-lexicon.md#component) is called a [workload](../personas-and-definitions/technical-lexicon.md#workload). A workload runs on a Margo compliant [Compute Target](../personas-and-definitions/technical-lexicon.md#compute-target).
 
 In order to help achieve Margo's interoperability [mission statement](../what-is-margo#mission-statement) we are initially targeting [containerized](https://github.com/opencontainers) components/workloads capable of running on platforms like Kubernetes, Docker and Podman. The flexibility these platforms provide enables [workload suppliers](../personas-and-definitions/personas.md#workload-supplier) to define and package their components in a common way using Helm [version 3](https://helm.sh/docs/v3/) or [version 4](https://helm.sh/docs/) with Chart APIVersion v2 only (see [specification for restrictions](../../specification/applications/application-description#helm-restrictions)), or the [Compose specification](https://github.com/compose-spec/compose-spec/blob/main/spec.md) so they can more easily be deployed to multiple compatible edge compute devices as workloads.
 
@@ -9,7 +9,7 @@ While Margo is initially targeting deployments using Helm or Compose, we plan to
 The three main goals of Margo's application description model is to allow workload fleet managers to do the following:
 
 - Display information about available applications (e.g., via an [application catalog](../personas-and-definitions/technical-lexicon.md#application-catalog)), which the [OT user](../personas-and-definitions/personas.md#ot-user) can deploy as workloads.
-- Determine which edge compute devices are compatible with an application (regarding processor type, GPU present, RAM available, etc.)
+- Determine which Compute Targets are compatible with an application (regarding processor type, GPU present, RAM available, etc.)
 - Capture, and validate, configuration information from the OT user when deploying application components as workloads, or updating them.
 
 Another advantage of Margo's [application description model](../concepts/applications/application-package.md) is to enable workload suppliers to define different deployment profiles in a single application description file to target deploying to different types of edge compute devices (e.g., Arm vs. x86, Kubernetes vs. Docker) instead of needing to maintain multiple application description files.

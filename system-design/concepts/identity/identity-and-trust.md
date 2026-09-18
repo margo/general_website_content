@@ -21,6 +21,8 @@ MIAF has four elements that work together:
 
 An identity is named by a [SPIFFE ID](../../personas-and-definitions/technical-lexicon.md#spiffe-id) and carried by an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid). Components authenticate to each other with mutual TLS, each presenting its SVID and validating the peer's against the Trust Bundle. Authorization then happens locally: each component decides what a verified identity is allowed to do. There is no central authorization server in the path.
 
+These identities are the only names that carry trust. Operational labels such as the [Target Name](../../personas-and-definitions/technical-lexicon.md#target-name) given to a Compute Target exist to help people recognize what they are deploying to, and are never used to authenticate a component or grant it access.
+
 ```mermaid
 flowchart LR
  Client["`**Margo Client Component**

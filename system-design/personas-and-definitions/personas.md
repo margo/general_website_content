@@ -55,9 +55,9 @@ Provides an application that performs some desired function, such as computer vi
 
 Provides a software package that enables End Users to manage their workloads and/or devices the workloads run on via Fleet management patterns.
 
-#### Device Supplier
+#### Compute Supplier
 
-Provides hardware resources, such as CPU and memory, along with lifecycle support, such as firmware and BIOS updates
+Provides the compute hardware that delivers a Compute Target, such as CPU and memory, along with lifecycle support, such as firmware and BIOS updates. This may be a single device, a multi-node cluster, or hardware reached through a gateway service
 
 #### Platform Supplier
 

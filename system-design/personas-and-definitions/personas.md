@@ -57,7 +57,7 @@ Provides a software package that enables End Users to manage their workloads and
 
 #### Compute Supplier
 
-Provides the compute hardware that delivers Target Compute, such as CPU and memory, along with lifecycle support, such as firmware and BIOS updates. This may be a single device, a multi-node cluster, or hardware reached through a gateway service
+Provides the compute hardware that delivers a Compute Target, such as CPU and memory, along with lifecycle support, such as firmware and BIOS updates. This may be a single device, a multi-node cluster, or hardware reached through a gateway service
 
 #### Platform Supplier
 

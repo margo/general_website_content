@@ -1,36 +1,36 @@
 # Workload Deployment
 
-This page describes how Margo manages the deployment and reconciliation of workloads on Target Compute.
+This page describes how Margo manages the deployment and reconciliation of workloads on Compute Targets.
 
 Workload deployment in Margo is based on a declarative Desired State model.
-A Workload Fleet Manager (WFM) defines the desired workloads for each Target Compute surface, including what should run, how each workload should be configured, and the parameters needed for deployment and lifecycle management.
-A Workload Fleet Management Client (WFM Client) retrieves and applies this Desired State for the Target Compute it manages, while reporting progress and results back to the WFM.
+A Workload Fleet Manager (WFM) defines the desired workloads for each Compute Target, including what should run, how each workload should be configured, and the parameters needed for deployment and lifecycle management.
+A Workload Fleet Management Client (WFM Client) retrieves and applies this Desired State for the Compute Target it manages, while reporting progress and results back to the WFM.
 This model provides a consistent and observable way to manage workloads across distributed environments.
 
 ## How it works
 
-The Workload Fleet Manager coordinates workloads across Target Compute surfaces.
-Operators use the WFM to define workloads, update deployments, and view rollout progress, selecting Target Compute by its Target Name.
-The WFM Client continuously reconciles the Desired State provided by the WFM with the workloads actually running on its Target Compute.
+The Workload Fleet Manager coordinates workloads across Compute Targets.
+Operators use the WFM to define workloads, update deployments, and view rollout progress, selecting a Compute Target by its Target Name.
+The WFM Client continuously reconciles the Desired State provided by the WFM with the workloads actually running on its Compute Target.
 
 The WFM and WFM Clients communicate through two key interfaces:
 
 - The [Desired State API](../../specification/margo-management-interface/desired-state.md), which distributes workload definitions to clients
 - The [Deployment Status API](../../specification/margo-management-interface/deployment-status.md), which collects deployment updates from clients
 
-Together, these interfaces establish a feedback loop between the centralized manager and the distributed Target Compute, ensuring workload consistency and visibility at scale.
+Together, these interfaces establish a feedback loop between the centralized manager and the distributed Compute Targets, ensuring workload consistency and visibility at scale.
 
 ## Desired State
 
-The Desired State defines the workloads that should run on each Target Compute surface and the details of how they are deployed.
-It is represented by a [State Manifest](../../specification/margo-management-interface/desired-state.md#endpoints-state-manifest) that lists all workloads assigned to that Target Compute.
+The Desired State defines the workloads that should run on each Compute Target and the details of how they are deployed.
+It is represented by a [State Manifest](../../specification/margo-management-interface/desired-state.md#endpoints-state-manifest) that lists all workloads assigned to that Compute Target.
 The WFM exposes this manifest through the Desired State API.
 
 Each workload is defined by an [ApplicationDeployment](../../specification/margo-management-interface/desired-state.md#applicationdeployment-yaml-definition), which describes:
 
 - The Components that make up the workload, such as Helm charts or Compose-based container bundles
 - Configuration parameters and deployment profiles that control workload behavior
-- Target information identifying which Target Compute, or groups of Target Compute, the deployment applies to
+- Target information identifying which Compute Targets, or groups of Compute Targets, the deployment applies to
 
 The WFM can provide ApplicationDeployments in two formats:
 
@@ -42,7 +42,7 @@ Each artifact is referenced by a SHA-256 digest. The WFM Client validates these 
 
 ## Reconciliation process
 
-Each WFM Client maintains the Desired State for its Target Compute by running a continuous reconciliation loop.
+Each WFM Client maintains the Desired State for its Compute Target by running a continuous reconciliation loop.
 
 1. **Retrieve the manifest:**
    The WFM Client periodically checks the WFM for updates to its State Manifest.
@@ -65,7 +65,7 @@ Each WFM Client maintains the Desired State for its Target Compute by running a 
 5. **Report status:**
    As the synchronization proceeds, the WFM Client reports its deployment status to the WFM through the Deployment Status API.
 
-This continuous process allows the WFM to maintain awareness of workload rollout progress and ensures Target Compute converges toward the Desired State.
+This continuous process allows the WFM to maintain awareness of workload rollout progress and ensures Compute Targets converge toward the Desired State.
 
 ## Deployment status
 
@@ -94,7 +94,7 @@ This information enables real-time monitoring and supports troubleshooting and a
 ```mermaid
 sequenceDiagram
     participant WFM as Workload Fleet Manager
-    participant Client as WFM Client (managing Target Compute)
+    participant Client as WFM Client (managing a Compute Target)
 
     loop Periodic synchronization
         Client->>WFM: Retrieve Desired State (Desired State API)

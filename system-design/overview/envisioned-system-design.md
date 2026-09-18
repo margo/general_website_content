@@ -10,7 +10,7 @@ The envisioned system can be broken down into the following main components:
 
 ### Workloads
 
-Workloads are the software deployed to Margo-compliant Target Compute.
+Workloads are the software deployed to Margo-compliant Compute Targets.
 They are deployed [Components](../personas-and-definitions/technical-lexicon.md#component) of an [Application Package](../personas-and-definitions/technical-lexicon.md#application-package).
 See the [Applications overview](applications) page to learn more Margo's supported workloads and how they are packaged.
 
@@ -20,10 +20,10 @@ For distributed systems its vitally important to collect diagnostics information
 
 ### Workload Fleet Management
 
-Workload fleet management software is the centralized software solution for managing the lifecycle of workloads on Margo compliant Target Compute. See the [workload fleet management](./workload-fleet-management.md) page to learn more more.  
+Workload fleet management software is the centralized software solution for managing the lifecycle of workloads on Margo compliant Compute Targets. See the [workload fleet management](./workload-fleet-management.md) page to learn more more.  
 
-### Target Compute
+### Compute Target
 
-Target Compute is the compute surface workloads are deployed to and run on. It is provided by edge compute devices, clusters, or gateway services, and as part of the Margo initiative we are very prescriptive about how these must be configured to be Margo compliant. See the [Target Compute overview](./edge-compute-devices.md) page to learn more.
+A Compute Target is the compute workloads are deployed to and run on. It is provided by edge compute devices, clusters, or gateway services, and as part of the Margo initiative we are very prescriptive about how these must be configured to be Margo compliant. See the [Compute Target overview](./edge-compute-devices.md) page to learn more.
 
 

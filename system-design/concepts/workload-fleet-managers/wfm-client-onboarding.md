@@ -12,7 +12,7 @@ Onboarding covers three core functions:
 
 Identity for the device's client comes from the [Margo Identity and Authorization Framework (MIAF)](../../specification/identity/identity-framework.md). Rather than a trust anchor and an identifier that live only at one WFM, MIAF issues identities at the level of a [Trust Domain](../../personas-and-definitions/technical-lexicon.md#trust-domain), where they are recognized across vendors.
 
-Each WFM Client holds an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid) naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). There is no in-band request in which a device submits a certificate and receives an assigned identifier; the identity is established out of band, through the operator's provisioning channel.
+Each WFM Client holds an [X.509-SVID](../../personas-and-definitions/technical-lexicon.md#svid) naming the client within the Trust Domain, under the WFM that issues it. The WFM holds its own SVID naming the WFM. An operator provisions both before the client first connects, following the [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md). The operator can install a key pair it generated, or the client can generate its own key pair and export a certificate signing request (see [acquisition modes](../../specification/identity/credential-provisioning.md#acquisition-modes)). In both cases, the operator assigns the identity, and the SVID reaches the client out of band through the operator's provisioning channel.
 
 ## Establishing trust
 
@@ -70,6 +70,7 @@ Please follow the subsequent links to view more technical information on the con
 
 - [Margo Identity and Authorization Framework](../../specification/identity/identity-framework.md)
 - [WFM Identity Profile](../../specification/identity/wfm-identity-profile.md)
+- [Credential Provisioning and Acquisition](../../specification/identity/credential-provisioning.md)
 - [Trust Bundle and Discovery Endpoints](../../specification/identity/trust-bundle-and-discovery.md)
 - [Identity Lifecycle and Operator Playbooks](../../specification/identity/identity-lifecycle.md)
 - [API Requirements and Security](../../specification/margo-management-interface/api-requirements-and-security.md)

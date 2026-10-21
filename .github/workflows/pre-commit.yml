@@ -1,0 +1,51 @@
+# SPDX-FileCopyrightText: 2026 Margo
+#
+# SPDX-License-Identifier: MIT
+---
+name: Pre-commit checks
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  pre-commit:
+    name: Run pre-commit (non-blocking)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+      - name: Install pre-commit
+        run: python -m pip install pre-commit
+      - name: Run hooks
+        shell: bash
+        run: |
+          set +e
+          pre-commit run --all-files > pre-commit-output.txt 2>&1
+          status=$?
+          cat pre-commit-output.txt
+
+          {
+            echo '## Pre-commit results'
+            echo
+            if [ "$status" -eq 0 ]; then
+              echo 'All hooks passed.'
+            else
+              echo 'One or more hooks failed. This job is non-blocking; see the output below.'
+            fi
+            echo
+            echo '```text'
+            cat pre-commit-output.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          exit "$status"

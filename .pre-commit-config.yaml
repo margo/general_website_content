@@ -21,7 +21,7 @@ repos:
         exclude: '\.svg$'
 
   - repo: https://github.com/errata-ai/vale
-    rev: v3.9.5
+    rev: v3.24.0
     hooks:
       - id: vale
         types: [markdown]

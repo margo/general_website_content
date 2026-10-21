@@ -19,3 +19,9 @@ repos:
     hooks:
       - id: codespell
         exclude: '\.svg$'
+
+  - repo: https://github.com/errata-ai/vale
+    rev: v3.9.5
+    hooks:
+      - id: vale
+        types: [markdown]

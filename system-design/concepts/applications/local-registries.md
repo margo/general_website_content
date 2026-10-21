@@ -14,7 +14,7 @@ In terms of connectivity, we can thereby distinguish mainly between the followin
 Local Component Registries or Container Image Registries can be used for all device categories.
 In case of **fully connected devices**, although the device could reach the Internet, a local registry can still be useful (e.g., as a cache for remote registries to save on bandwidth or to have container images or Helm Charts reliably available).
 In case of **locally connected devices**, a local registry is required to enable the Workload Fleet Management Client (WFMC) to install a Margo application on the device, as the device/WFMC does not have Internet access.
-Thereby, the local registry can be set up as a *pull-through cache* where data (e.g., container images) is cached locally when they are first retrieved from a remote source and subsequent requests for the same data are served from the local cache rather than fetching it again from the remote source.
+Thereby, the local registry can be set up as a _pull-through cache_ where data (e.g., container images) is cached locally when they are first retrieved from a remote source and subsequent requests for the same data are served from the local cache rather than fetching it again from the remote source.
 In case of **air-gapped devices**, a local registry has to be accessible on the technician's laptop (or other directly connected device), which performs the application installation process.
 
 To setup local registries, different configuration options exist:
@@ -89,6 +89,5 @@ helm repo add my-cached-repo http://<chartmuseum-ip>:8080
 helm repo update
 helm install my-release my-cached-repo/<chart-name>
 ```
-
 
 Now, when deploying applications in Kubernetes using Helm, the cached repository is used to serve charts rather than the remote repository.

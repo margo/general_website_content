@@ -1,9 +1,9 @@
 # Application Registry
 
-The Margo specification differentiates 3 kinds of registries: *Application Registries*, *Component Registries*, and *Container Image Registries*.
+The Margo specification differentiates 3 kinds of registries: _Application Registries_, _Component Registries_, and _Container Image Registries_.
 
 1. An **Application Registry** hosts Application Packages that define through their [Application Description](../../specification/applications/application-description.md) the application as one or multiple [Components](../../personas-and-definitions/technical-lexicon.md#component).
-2. A **Component Registry** hosts the [Components](../../personas-and-definitions/technical-lexicon.md#component) (which are deployable as *workloads*) and are provided  as **Helm Charts** or **Compose Archives**.
+2. A **Component Registry** hosts the [Components](../../personas-and-definitions/technical-lexicon.md#component) (which are deployable as _workloads_) and are provided as **Helm Charts** or **Compose Archives**.
 3. A **Container Image Registry** hosts container images referenced by those Components.
 
 Out of these 3 registries, **only the Application Registry interface is in scope** of the Margo specification and its API definition can be found [here](../../specification/applications/application-registry.md).
@@ -37,6 +37,6 @@ The WFM acts as a client to pull an [Application Package](application-package) f
 The Application Registry's API is compliant with the [OCI Registry API (v1.1.0)](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md).
 A hosted Application Package is provided by listing its parts as blobs in an [image manifests](https://github.com/opencontainers/image-spec/blob/v1.0.1/manifest.md) that can be requested through the API.
 
-
 ## Relevant Links
-* The technical reference of the Application Registry API is defined [here](../../specification/applications/application-registry.md).
+
+- The technical reference of the Application Registry API is defined [here](../../specification/applications/application-registry.md).

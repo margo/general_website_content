@@ -11,6 +11,7 @@ This document provides motivated individuals with information on how to contribu
 
 The Margo initiative is an open-source project designed to evolve through community input. Whether you’re an initiative member or simply passionate about improving open architecture standards, your ideas matter! We welcome enhancement requests from anyone interested in making Margo more robust, interoperable, and future-ready.
 Please navigate to the link below and follow the instructions to submit your specification enhancement request:
+
 - [Specification Enhancement Repository](https://github.com/margo/specification-enhancements)
 
 ## Margo Code First Sandbox Feedback
@@ -20,6 +21,7 @@ In spec development, "code first" refers to an approach where the implementation
 The Margo initiative utilizes this sandbox, in conjunction with the specification, to enable fully thought through proposals that include specification and working code snippets. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities.
 
 To provide feedback towards the Code First Sandbox, whether bug reports or features requests, please navigate to the link below:
+
 - [Sandbox Repository](https://github.com/margo/sandbox)
 
 ## Contribution Checklist
@@ -37,6 +39,7 @@ To provide feedback towards the Code First Sandbox, whether bug reports or featu
 - Base commits on top of latest `pre-draft` branch
 
 ### Signing the CLA for Contributions to the Specification
+
 If you have not yet signed the Individual CLA, or your organization has not yet signed the Corporate CLA, or if your account has not yet been authorized by your organization to contribute to Margo, the [LFX EasyCLA bot](https://easycla.lfx.linuxfoundation.org/#/) will prompt you to follow the appriopriate steps to authorize your contribution.
 
 To ensure your contribution is covered before you make a pull request or to sign the CLA, open a PR at https://github.com/margo/EasyCLA.

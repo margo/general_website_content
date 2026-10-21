@@ -58,9 +58,9 @@ Each WFM Client maintains the Desired State on its Edge Compute Device by runnin
 4. **Apply the Desired State:**
    The WFM Client compares the current workloads with those defined in the Desired State:
 
-      - Adds or updates workloads that have changed
-      - Removes workloads that are no longer listed
-      - Keeps workloads that remain valid and current
+   - Adds or updates workloads that have changed
+   - Removes workloads that are no longer listed
+   - Keeps workloads that remain valid and current
 
 5. **Report status:**
    As the synchronization proceeds, the WFM Client reports its deployment status to the WFM through the Deployment Status API.
@@ -78,11 +78,11 @@ A deployment status report includes:
 - The identifier of the ApplicationDeployment
 - The current deployment state, which may be:
 
-    - Pending - the Desired State has been received but not yet applied
-    - Installing - the workload is being deployed
-    - Installed - the workload has been successfully applied
-    - Removing or Removed - the workload is being or has been uninstalled
-    - Failed - an error occurred during deployment
+  - Pending - the Desired State has been received but not yet applied
+  - Installing - the workload is being deployed
+  - Installed - the workload has been successfully applied
+  - Removing or Removed - the workload is being or has been uninstalled
+  - Failed - an error occurred during deployment
 
 - Optional component-level progress information
 - Error codes and messages, when applicable

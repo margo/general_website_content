@@ -6,19 +6,19 @@ The Margo specification differentiates 3 kinds of registries: *Application Regis
 2. A **Component Registry** hosts the [Components](../../personas-and-definitions/technical-lexicon.md#component) (which are deployable as *workloads*) and are provided  as **Helm Charts** or **Compose Archives**.
 3. A **Container Image Registry** hosts container images referenced by those Components.
 
-Out of these 3 registries, **only the Application Registry interface is in scope** of the Margo specification and its API definition can be found [here](../../specification/applications/application-registry.md).  
+Out of these 3 registries, **only the Application Registry interface is in scope** of the Margo specification and its API definition can be found [here](../../specification/applications/application-registry.md).
 
 The diagram below illustrates these functionalities and relationships of registries within Margo.
 
 ```mermaid
 flowchart
-   A[WFM, or internal Application Catalog] -- Application Descriptions link to --> B[Component Registry] 
+   A[WFM, or internal Application Catalog] -- Application Descriptions link to --> B[Component Registry]
    C[Application Registry] -- Application Descriptions link to --> B
    B -- hosted Components links to --> D[Container Image Registry]
    A -->|pulls Application Package | C
    F[App Developer] -->|uploads Application Package to| C
-   C -->|hosts 0..*| E@{ shape: docs, label: "Application Packages"} 
-   C s1@-->|validates token| H[Authentication Service] 
+   C -->|hosts 0..*| E@{ shape: docs, label: "Application Packages"}
+   C s1@-->|validates token| H[Authentication Service]
    A s2@-->|requests token| H
    style H stroke-dasharray: 3 6
    style B fill:#ABC

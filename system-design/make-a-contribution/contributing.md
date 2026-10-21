@@ -13,15 +13,15 @@ Please navigate to the link below and follow the instructions to submit your enh
 
 In spec development, "code first" refers to an approach where the implementation of a feature or system is driven by writing code before formalizing the specification. This contrasts with a "spec first" approach, where detailed specifications (e.g., API contracts, data models, and workflows) are designed before implementation begins.
 
-The Margo initiative utilizes this sandbox, in conjunction with the specification enhancements, to enable fully specified contributions to the specification. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities. 
+The Margo initiative utilizes this sandbox, in conjunction with the specification enhancements, to enable fully specified contributions to the specification. An additional benefit the sandbox provides is a working replica of the real world architecture to enable demonstrations and plugfest type activities.
 
 To provide feedback towards the Code First Sandbox, whether bug reports or features requests, please navigate to the link below:
 - [Sandbox Repository](https://github.com/margo/sandbox)
 
 ## Contribution Checklist
 
-- Contributions to the Specification must be covered by a Corporate CLA or Individual CLA  
-- Any code changes must be accompanied with automated tests 
+- Contributions to the Specification must be covered by a Corporate CLA or Individual CLA
+- Any code changes must be accompanied with automated tests
 - Add the required copyright header to each new file introduced if appropriate, see [licensing information](https://github.com/margo/specification/blob/pre-draft/LICENSE)
 - Add `signed-off` to all commits to certify the "Developer's Certificate of Origin", see below
 - Structure your commits logically, in small steps
@@ -33,7 +33,7 @@ To provide feedback towards the Code First Sandbox, whether bug reports or featu
 - Base commits on top of latest `pre-draft` branch
 
 ### Signing the CLA for Contributions to the Specification
-If you have not yet signed the Individual CLA, or your organization has not yet signed the Corporate CLA, or if your account has not yet been authorized by your organization to contribute to Margo, the [LFX EasyCLA bot](https://easycla.lfx.linuxfoundation.org/#/) will prompt you to follow the appriopriate steps to authorize your contribution. 
+If you have not yet signed the Individual CLA, or your organization has not yet signed the Corporate CLA, or if your account has not yet been authorized by your organization to contribute to Margo, the [LFX EasyCLA bot](https://easycla.lfx.linuxfoundation.org/#/) will prompt you to follow the appriopriate steps to authorize your contribution.
 
 To ensure your contribution is covered before you make a pull request or to sign the CLA, open a PR at https://github.com/margo/EasyCLA.
 
@@ -76,4 +76,4 @@ Check with your employer when not working on your own!
             this project or the open source license(s) involved.
 
 ## Documentation Generation Process
-> Note: This section will be updated in a future update. 
+> Note: This section will be updated in a future update.

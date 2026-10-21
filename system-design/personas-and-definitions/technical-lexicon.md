@@ -52,7 +52,7 @@ Currently Margo-supported components are:
 - [Compose Archive](#compose-archive)
 
 #### Compose Archive
-A Compose Archive is a tarball file containing the Compose file, `compose.yaml`, which is formatted according the [Compose specification](https://www.compose-spec.io/), and any additional artifacts referenced by the Compose file (e.g., configuration files, environment variable files, etc.). 
+A Compose Archive is a tarball file containing the Compose file, `compose.yaml`, which is formatted according the [Compose specification](https://www.compose-spec.io/), and any additional artifacts referenced by the Compose file (e.g., configuration files, environment variable files, etc.).
 
 #### Workload
 
@@ -72,9 +72,9 @@ The Workload Fleet Management client is a service that runs on the [Edge Compute
 
 #### Device Fleet Manager
 
-Device Fleet Manager (DFM) represents a software offering that enables End Users to onboard, delete, and maintain [Edge Compute Devices](#edge-compute-device) within the ecosystem. This software is utilized in conjunction with the [Workload Fleet Manager](#workload-fleet-manager) software to provide users with the features required to manage their [Edge Device](#edge-compute-device) along with [Workloads](#workload) running on them.  
+Device Fleet Manager (DFM) represents a software offering that enables End Users to onboard, delete, and maintain [Edge Compute Devices](#edge-compute-device) within the ecosystem. This software is utilized in conjunction with the [Workload Fleet Manager](#workload-fleet-manager) software to provide users with the features required to manage their [Edge Device](#edge-compute-device) along with [Workloads](#workload) running on them.
 
-> Note: The Device Fleet Manager is a future component of the Margo specification. This section will be expanded as the community defines device management functionality. 
+> Note: The Device Fleet Manager is a future component of the Margo specification. This section will be expanded as the community defines device management functionality.
 
 
 #### Application Registry

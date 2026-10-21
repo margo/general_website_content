@@ -1,14 +1,14 @@
 # Application Package
 
 The Application Package, which is used to [distribute an application](../../overview/applications.md) to be deployed as [workloads](../../personas-and-definitions/technical-lexicon.md#workload) on edge devices, comprises the following elements:
- 
-- The **Application Description**: a YAML document, which is stored in a file (for example named `margo.yaml`) and contains information about the application's [metadata](../../specification/applications/application-description.md#metadata-attributes) (e.g., name, version, author, etc.), the application [components](../../personas-and-definitions/technical-lexicon.md#component) (e.g.,  Helm charts, Compose Archive), which are defined in [deployment configurations](../../specification/applications/application-description.md#deploymentprofile-attributes), and [configurable application parameters](../../specification/applications/application-description.md#defining-configurable-application-parameters).  
+
+- The **Application Description**: a YAML document, which is stored in a file (for example named `margo.yaml`) and contains information about the application's [metadata](../../specification/applications/application-description.md#metadata-attributes) (e.g., name, version, author, etc.), the application [components](../../personas-and-definitions/technical-lexicon.md#component) (e.g.,  Helm charts, Compose Archive), which are defined in [deployment configurations](../../specification/applications/application-description.md#deploymentprofile-attributes), and [configurable application parameters](../../specification/applications/application-description.md#defining-configurable-application-parameters).
 - The **resources**, which are additional files associated with the application (human-readable description, icon, release notes, or license file) that may be used to provide more information about the application (e.g., in a UI such as an [application catalog](../../personas-and-definitions/technical-lexicon.md#application-catalog) of a [WFM](../../personas-and-definitions/technical-lexicon.md#workload-fleet-manager)).
 
 The Application Package is distributed via an [Application Registry](./application-registry.md) and is bundled within a **repository** according to the [OCI distribution specification](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md).
 All files (i.e., Application Description and resource files) belonging to the Application Package are referenced as *layers* (the equivalent term **blobs** is nowadays preferred and will be used in the rest of this document) by a **manifest** inside the repository.
 The blob of the Application Description file is marked with a **mediaType** value as `application/vnd.margo.app.description.v1+yaml`.
-The blobs of resource files are marked with an according **mediaType** (see list [here](../../specification/applications/application-registry.md#margo-specific-media-types)), e.g., an icon in jpeg format is marked with the mediaTye `application/vnd.margo.app.icon.v1+jpeg`. 
+The blobs of resource files are marked with an according **mediaType** (see list [here](../../specification/applications/application-registry.md#margo-specific-media-types)), e.g., an icon in jpeg format is marked with the mediaTye `application/vnd.margo.app.icon.v1+jpeg`.
 This is illustrated in the figure below and formally defined [here](../../specification/applications/application-registry.md).
 
 
@@ -41,7 +41,7 @@ An application aggregates one or more [components](../../personas-and-definition
 
 Each component links to one or more [OCI Container Images](https://github.com/opencontainers/image-spec).
 The components  referenced in the [Application Description](../../specification/applications/application-description.md) are stored in a [Component Registry](../../personas-and-definitions/technical-lexicon.md#component-registry), and the linked container images are provided via a [Container Image Registry](../../personas-and-definitions/technical-lexicon.md#container-image-registry).
-Registries can be remote (i.e., Internet-accessible) or [local](../../concepts/applications/local-registries.md) (i.e., accessible within a local network infrastructure of the devices). 
+Registries can be remote (i.e., Internet-accessible) or [local](../../concepts/applications/local-registries.md) (i.e., accessible within a local network infrastructure of the devices).
 
  The components are being deployed as workloads on the edge devices:
 
@@ -56,7 +56,7 @@ If either one cannot be implemented it MAY be omitted but Margo RECOMMENDS defin
 
 Margo will provide more detailed discussion and specification on the following points:
 
-> **Investigation Needed**: Question: do we need to specify the location of a SHA256 hash for the Compose Archive also (similar to the PGP key) in the ApplicationDescription? 
+> **Investigation Needed**: Question: do we need to specify the location of a SHA256 hash for the Compose Archive also (similar to the PGP key) in the ApplicationDescription?
 > We will also discuss how we should handle secure container registries that require a username and password.
 >
 > **Investigation Needed**: We need to determine what impact, if any, using 3rd party helm charts has on being Margo compliant.

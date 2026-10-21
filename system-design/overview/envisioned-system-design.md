@@ -20,10 +20,8 @@ For distributed systems its vitally important to collect diagnostics information
 
 ### Workload Fleet Management
 
-Workload fleet management software is the centralized software solution for managing the lifecycle of workloads on Margo compliant edge compute devices. See the [workload fleet management](./workload-fleet-management.md) page to learn more more.  
+Workload fleet management software is the centralized software solution for managing the lifecycle of workloads on Margo compliant edge compute devices. See the [workload fleet management](./workload-fleet-management.md) page to learn more more.
 
 ### Edge compute devices
 
 Edge compute devices are the compute surfaces workloads are deployed to and run on. As part of the Margo initiative we are very prescriptive about how a edge compute devices must be configured to make it Margo compliant. See the [edge compute device overview](./edge-compute-devices.md) page to learn more.
-
-

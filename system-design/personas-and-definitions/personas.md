@@ -25,7 +25,7 @@ These persona definitions represent individual entities with specified use cases
 
 ### End Users
 
-End users consume products and technologies that adopt the specification to deliver desired business outcomes. 
+End users consume products and technologies that adopt the specification to deliver desired business outcomes.
 
 #### OT User
 
@@ -41,7 +41,7 @@ Optional persona, external to the organization of the other end user personas, b
 
 #### IT Service Provider
 
-Provides "IT-like" services, such as connectivity, backup and restore, automation, security and auditing, within the End User's OT environment. 
+Provides "IT-like" services, such as connectivity, backup and restore, automation, security and auditing, within the End User's OT environment.
 
 ### Suppliers
 

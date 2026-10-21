@@ -60,7 +60,7 @@ proxy:
   remoteurl: https://registry-1.docker.io
 ```
 
-This registry can be started uing the following command:
+This registry can be started using the following command:
 `docker run -d -p 5000:5000 --restart unless-stopped --name registry -v $(pwd)/config.yml:/etc/docker/registry/config.yml registry:2`
 
 Then, the Docker daemon needs to be configured to use the private registry as a mirror in the `/etc/docker/daemon.json` file:

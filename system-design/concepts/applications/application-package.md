@@ -8,7 +8,7 @@ The Application Package, which is used to [distribute an application](../../over
 The Application Package is distributed via an [Application Registry](./application-registry.md) and is bundled within a **repository** according to the [OCI distribution specification](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md).
 All files (i.e., Application Description and resource files) belonging to the Application Package are referenced as _layers_ (the equivalent term **blobs** is nowadays preferred and will be used in the rest of this document) by a **manifest** inside the repository.
 The blob of the Application Description file is marked with a **mediaType** value as `application/vnd.margo.app.description.v1+yaml`.
-The blobs of resource files are marked with an according **mediaType** (see list [here](../../specification/applications/application-registry.md#margo-specific-media-types)), e.g., an icon in jpeg format is marked with the mediaTye `application/vnd.margo.app.icon.v1+jpeg`.
+The blobs of resource files are marked with an according **mediaType** (see list [here](../../specification/applications/application-registry.md#margo-specific-media-types)), e.g., an icon in JPEG format is marked with the mediaType `application/vnd.margo.app.icon.v1+jpeg`.
 This is illustrated in the figure below and formally defined [here](../../specification/applications/application-registry.md).
 
 ```mermaid

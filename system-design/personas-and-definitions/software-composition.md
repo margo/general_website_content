@@ -31,7 +31,7 @@ The term [Component][component] applies to the resources available in [packaged 
 
 Some [providers][provider-model] might support that multiple [Workload][workload] replicas are deployed from a single [Component][component].
 
-[Components][component] are made available over [Component Registrys][component-registry].
+[Components][component] are made available over [Component Registries][component-registry].
 
 [Components][component] might have different shapes depending on their type and on which stage is being considered:
 

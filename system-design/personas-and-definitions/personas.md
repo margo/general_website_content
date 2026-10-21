@@ -64,4 +64,4 @@ Provides hardware resources, such as CPU and memory, along with lifecycle suppor
 
 #### Platform Supplier
 
-Provides operating system level software to abstract hardware resources, and optionally, container orchestration software on top of the the operating system layer
+Provides operating system level software to abstract hardware resources, and optionally, container orchestration software on top of the operating system layer

@@ -5,7 +5,7 @@ Observability involves the collection and analysis of information produced by a 
 Observability data is captured using the following signals:
 
 - [Metrics](https://opentelemetry.io/docs/specs/otel/metrics/) - a numerical measurement in time used to observe change over a period of time or configured limits. For example, memory consumption, CPU Usage, available disk space.
-- [Logs](https://opentelemetry.io/docs/specs/otel/logs/) - text outputs produced by a running system/workloads to provide information about what is happening. For example, outputs to capture security events such as failed login attempts, or unexpected conditions such as errors.  
+- [Logs](https://opentelemetry.io/docs/specs/otel/logs/) - text outputs produced by a running system/workloads to provide information about what is happening. For example, outputs to capture security events such as failed login attempts, or unexpected conditions such as errors.
 - [Traces](https://opentelemetry.io/docs/specs/otel/trace/) - contextual data used to follow a request's entire path through a distributed system. For example, trace data can be used to identify bottlenecks, or failure points, within a distributed system.
 
 Margo's workload observability scope is limited to the following areas:

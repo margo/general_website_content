@@ -17,7 +17,3 @@ To ensure a device can host the workloads assigned to it, each workload hosting 
 ## Gateway Devices
 
 Gateway devices add flexibility at the edge compute layer by connecting devices that do not host a Margo management client of their own. A gateway can act as an **opaque gateway**, which combines the capabilities of several child devices and presents them to the fleet manager as a single device, or as a **see-thru gateway**, which reports each child device individually so the fleet manager can see and target them as distinct devices. For the full description of gateway behavior, see [Gateways](../gateways/gateways.md).
-
-
-
-

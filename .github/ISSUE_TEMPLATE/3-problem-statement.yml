@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Search [existing issues](https://github.com/margo/specification/labels/Problem%20Statement) before creating a new problem statement
-  
+
   - type: markdown
     attributes:
       value: "## Problem Statement"
@@ -20,7 +20,7 @@ body:
       label: "Description"
     validations:
       required: true
-  
+
   - type: textarea
     attributes:
       label: "Associated requirements"
@@ -60,10 +60,10 @@ body:
     attributes:
       label: "Use cases/scenarios"
       description: "Describe the use cases/scenarios each proposal must address"
-      value: | 
-        1. 
-        2. 
-        3. 
+      value: |
+        1.
+        2.
+        3.
         ...
     validations:
       required: false

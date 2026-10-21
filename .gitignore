@@ -3,6 +3,7 @@ site
 .cache
 myenv
 .python-version
+.vale/styles/Microsoft/
 
 # Ignore the generated files:
 system-design/specification/margo-management-interface/desired-state.md

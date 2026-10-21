@@ -24,4 +24,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: live627/check-pr-signoff-action@v1
-

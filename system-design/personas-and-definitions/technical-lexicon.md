@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD001 -->
+
 # Technical Lexicon
 
 Below are concepts and terms utilized throughout the Margo Specification along with their associated description/definition.
@@ -52,7 +54,8 @@ Currently Margo-supported components are:
 - [Compose Archive](#compose-archive)
 
 #### Compose Archive
-A Compose Archive is a tarball file containing the Compose file, `compose.yaml`, which is formatted according the [Compose specification](https://www.compose-spec.io/), and any additional artifacts referenced by the Compose file (e.g., configuration files, environment variable files, etc.). 
+
+A Compose Archive is a tarball file containing the Compose file, `compose.yaml`, which is formatted according the [Compose specification](https://www.compose-spec.io/), and any additional artifacts referenced by the Compose file (e.g., configuration files, environment variable files, etc.).
 
 #### Workload
 
@@ -72,10 +75,9 @@ The Workload Fleet Management client is a service that runs on the [Edge Compute
 
 #### Device Fleet Manager
 
-Device Fleet Manager (DFM) represents a software offering that enables End Users to onboard, delete, and maintain [Edge Compute Devices](#edge-compute-device) within the ecosystem. This software is utilized in conjunction with the [Workload Fleet Manager](#workload-fleet-manager) software to provide users with the features required to manage their [Edge Device](#edge-compute-device) along with [Workloads](#workload) running on them.  
+Device Fleet Manager (DFM) represents a software offering that enables End Users to onboard, delete, and maintain [Edge Compute Devices](#edge-compute-device) within the ecosystem. This software is utilized in conjunction with the [Workload Fleet Manager](#workload-fleet-manager) software to provide users with the features required to manage their [Edge Device](#edge-compute-device) along with [Workloads](#workload) running on them.
 
-> Note: The Device Fleet Manager is a future component of the Margo specification. This section will be expanded as the community defines device management functionality. 
-
+> Note: The Device Fleet Manager is a future component of the Margo specification. This section will be expanded as the community defines device management functionality.
 
 #### Application Registry
 
@@ -83,11 +85,9 @@ An [Application Registry](../concepts/applications/application-registry.md) host
 It is used by application developers to make their applications available.
 The [API of the Application Registry](../specification/applications/application-registry.md) is compliant with the [OCI Registry API (v1.1.0)](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md).
 
-
 #### Application Catalog
 
 An Application Catalog is a visual representation of preselected, install-ready applications, the user of the [WFM](#workload-fleet-manager) can deploy to it's managed [Edge Compute Devices](#edge-compute-device). Application Catalogs and how they function within the WFM are out of scope for Margo.
-
 
 #### Component Registry
 
@@ -96,7 +96,8 @@ When an application gets deployed through a [Workload Fleet Manager](#workload-f
 The Component Registry can be implemented, e.g., as an OCI Registry.
 
 #### Container Image Registry
-A Container Image Registry hosts container images. [Components](#component) which are provided  as Helm Charts or Compose Archives link to such container images.
+
+A Container Image Registry hosts container images. [Components](#component) which are provided as Helm Charts or Compose Archives link to such container images.
 
 ## Identity Terms
 

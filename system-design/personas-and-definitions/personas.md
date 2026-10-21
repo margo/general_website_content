@@ -3,18 +3,21 @@
 Throughout this documentation, the following personas are used to represent interaction with the standard and/or with entities defined by the standard.
 
 ## Persona Relationships
+
 ![Persona Relationships](../figures/persona-relationship.drawio.svg)
 
 ## Categories
 
 These categories group common personas together under a shared goal or role. These categories will be used in other documentation to provide grouping and clarity where appropriate.
 
-### End Users
+### End Users <!-- Categories -->
+
 - Evaluates the best-in-class products offered by the suppliers
 - Consumes products provided by the suppliers
 - Assembles multiple vendor's products into a productive automation system
 
-### Suppliers
+### Suppliers <!-- Categories -->
+
 - Contribute knowledge and expertise to the specification sections relevant to their business.
 - Builds products compliant with the Margo specification.
 - Markets and sells their products to end users
@@ -23,9 +26,9 @@ These categories group common personas together under a shared goal or role. The
 
 These persona definitions represent individual entities with specified use cases and requirements, aligned with the other personas in their category.
 
-### End Users
+### End Users <!-- Persona Definitions -->
 
-End users consume products and technologies that adopt the specification to deliver desired business outcomes. 
+End users consume products and technologies that adopt the specification to deliver desired business outcomes.
 
 #### OT User
 
@@ -41,9 +44,9 @@ Optional persona, external to the organization of the other end user personas, b
 
 #### IT Service Provider
 
-Provides "IT-like" services, such as connectivity, backup and restore, automation, security and auditing, within the End User's OT environment. 
+Provides "IT-like" services, such as connectivity, backup and restore, automation, security and auditing, within the End User's OT environment.
 
-### Suppliers
+### Suppliers <!-- Persona Definitions -->
 
 Suppliers provides hardware or software that's evaluated and deployed by the end users
 
@@ -61,4 +64,4 @@ Provides hardware resources, such as CPU and memory, along with lifecycle suppor
 
 #### Platform Supplier
 
-Provides operating system level software to abstract hardware resources, and optionally, container orchestration software on top of the the operating system layer
+Provides operating system level software to abstract hardware resources, and optionally, container orchestration software on top of the operating system layer

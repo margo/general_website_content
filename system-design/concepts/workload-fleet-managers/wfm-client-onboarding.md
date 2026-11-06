@@ -6,7 +6,7 @@ Onboarding covers three core functions:
 
 - establishing mutual trust between the device's client and the WFM;
 - giving the WFM Client a verifiable identity the WFM recognizes; and
-- reporting device capabilities so the WFM can make workload placement decisions.
+- reporting device profile so the WFM can make workload placement decisions.
 
 ## Identity and trust
 
@@ -31,7 +31,7 @@ mTLS is used deliberately here: it authenticates both parties at the transport l
 
 ## Capability reporting
 
-Once trust is established, the device's client reports its capabilities to the WFM using the [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible devices.
+Once trust is established, the device's client reports its profile to the WFM using the [Profile API](../../specification/margo-management-interface/profiles.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible devices.
 
 ## The flow, end to end
 
@@ -60,7 +60,7 @@ sequenceDiagram
     WFM->>WFM: Validate client SVID, check namespace and policy
 
     Note over Client,WFM: Management Interface exchanges
-    Client->>WFM: Report device capabilities
+    Client->>WFM: Report device profile
     Client->>WFM: Poll desired state, report deployment status
 ```
 
@@ -73,4 +73,4 @@ Please follow the subsequent links to view more technical information on the con
 - [Trust Bundle and Discovery Endpoints](../../specification/identity/trust-bundle-and-discovery.md)
 - [Identity Lifecycle and Operator Playbooks](../../specification/identity/identity-lifecycle.md)
 - [API Requirements and Security](../../specification/margo-management-interface/api-requirements-and-security.md)
-- [Device Capabilities API](../../specification/margo-management-interface/device-capabilities.md)
+- [Profile API](../../specification/margo-management-interface/profile.md)

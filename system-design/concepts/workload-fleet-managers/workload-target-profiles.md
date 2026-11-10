@@ -1,6 +1,6 @@
 # Workload Target Profiles
 
-The purpose of workload target profile reporting is to ensure the Workload Fleet Management (WFM) solution has the information required to [match workloads](../../specification/applications/application-description#characteristics-attributes) with compatible workload targets. WFM implementation are not required to understand each characteristic's schemas and instead only use the information for matching. This allows the independent deployment technology specifications to be added or evolve without requiring updates to the WFM implementation.
+The purpose of workload target profile reporting is to ensure the Workload Fleet Management (WFM) solution has the information required to [match workloads](../../specification/applications/application-description#characteristics-attributes) with compatible workload targets. WFM implementations are not required to understand each characteristic's schemas and instead only use the information for matching. This allows the independent deployment technology specifications to be added or evolve without requiring updates to the WFM implementation.
 
 The workload target's profile is reported to the WFM web service using the [Profile API](../../specification/margo-management-interface/profiles.md).
 
@@ -8,7 +8,7 @@ The workload target's profile is reported to the WFM web service using the [Prof
 
 ## Profile Reporting
 
-The workload targets report their profile characteristics, via the Profile API, when the workload target's client first connects to the Workload Fleet Management solution. Additionally, during the lifecycle of the workload target, if there is a change that impacts the reported characteristics, the workload target updates the Workload Fleet Manager with the latest information via the [Profile API](../../specification/margo-management-interface/profiles.md).
+The workload targets report their profile characteristics via the Profile API when the workload target's client first connects to the Workload Fleet Management solution. Additionally, during the lifecycle of the workload target, if there is a change that impacts the reported characteristics, the workload target updates the Workload Fleet Manager with the latest information via the [Profile API](../../specification/margo-management-interface/profiles.md).
 
 The profile characteristics reported are determined by the different deployment technologies the workload target supports as defined in each applicable deployment technology specification.
 

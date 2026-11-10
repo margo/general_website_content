@@ -4,7 +4,7 @@
 
 ## Overview
 
-In order to decouple support for different deployment technologies (e.g, Helm, Compose, etc.) from Margo's core specification we have adopted the use of independent deployment technology specifications. These independent deployment technology specifications allow the choice of technologies to evolve over time without impacting Margo's core specification.
+In order to decouple support for different deployment technologies (e.g., Helm, Compose, etc.) from Margo's core specification, we have adopted the use of independent deployment technology specifications. These independent deployment technology specifications allow the choice of technologies to evolve over time without impacting Margo's core specification.
 
 This document provides the requirements and guidelines for people to follow when creating and contributing to deployment technology specifications. These are requirements for the specification authors to follow, not specification implementors.
 
@@ -16,12 +16,12 @@ Each deployment technology specification is responsible for defining the applica
 
 Each characteristic MUST publish a human-readable definition and MAY publish a JSON Schema. The characteristic definition MUST be published, or referenced, as part of the applicable deployment technology specification. The schema is informative to a workload fleet manager, but is normative for device suppliers claiming conformance to the characteristic if a schema is provided.
 
-Characteristics keys MUST be globally unique and following the naming guidelines:
+Characteristic keys MUST be globally unique and follow the naming guidelines:
 
-- The key name SHOULD follow the pattern `{domain}/{category}/{identifier}` or `{domain}/{identifier}`
-- The domain for all Margo community characteristics MUST be `margo.org`
+- The key name SHOULD follow the pattern `{domain}/{category}/{identifier}` or `{domain}/{identifier}`.
+- The domain for all Margo community characteristics MUST be `margo.org`.
 - The domain for vendor-specific characteristics defined in vendor-specific deployment technology specifications SHOULD use an appropriate domain for the company or organization creating the specification.
-- The key for a deployment technology characteristics MUST use `{domain}/deployment/{technology-identifier}`
+- The key for a deployment technology characteristic MUST use `{domain}/deployment/{technology-identifier}`.
 
 Characteristics are not versioned by adding a version field to each instance. A characteristic owner MAY make the following additive changes only under the same key:
 
@@ -48,10 +48,10 @@ The workload fleet manager MUST NOT be required to do any conversions between wh
 
 #### Deployment characteristics
 
-Each deployment characteristic (e.g., `margo.org/deployment/helm`) describes what is required for an application to be matched with suitable workload targets using the required properties. Each deployment characteristic can define what properties make sense for that specific deployment technology. Deployment characteristics not expected to be common between deployment technology specifications.
+Each deployment characteristic (e.g., `margo.org/deployment/helm`) describes what is required for an application to be matched with suitable workload targets using the required properties. Each deployment characteristic can define what properties make sense for that specific deployment technology. Deployment characteristics are not expected to be common between deployment technology specifications.
 
 ## Vendor-Specific Deployment Technology Specifications
 
-Vendors requiring support for deployment technologies not defined by the Margo community can create their own deployment technology specification to facilitate collaboration between application and device suppliers. The use of custom deployment technologies adds functionality not part of the Margo specification. Since the Margo community does not maintain a listing of these vendor-specific deployment specifications, it is expected suppliers collaborate in order to know what is available.
+Vendors requiring support for deployment technologies not defined by the Margo community can create their own deployment technology specification to facilitate collaboration between application and device suppliers. The use of custom deployment technologies adds functionality not part of the Margo specification. Since the Margo community does not maintain a listing of these vendor-specific deployment specifications, it is expected that suppliers collaborate in order to know what is available.
 
-Vendors implementing their own deployment technology specification SHOULD following the requirements in this document.
+Vendors implementing their own deployment technology specification SHOULD follow the requirements in this document.

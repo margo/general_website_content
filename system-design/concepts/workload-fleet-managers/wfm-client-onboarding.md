@@ -29,7 +29,7 @@ Belonging to the namespace is not the same as permission to use the API. A valid
 
 mTLS is used deliberately here: it authenticates both parties at the transport layer and removes the need for the WFM Client to sign each request at the application layer. In topologies where a TLS-offloading reverse proxy terminates the connection, the proxy validates the client's SVID and forwards the authenticated identity to the WFM backend over an operator-trusted boundary.
 
-## Capability reporting
+## Profile reporting
 
 Once trust is established, the device's client reports its profile to the WFM using the [Profile API](../../specification/margo-management-interface/profiles.md). This is the first exchange after the client connects, and it gives the WFM the information it needs to pair workloads with compatible devices.
 

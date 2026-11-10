@@ -1,10 +1,10 @@
 # Deployment Technology Spec Writing Requirements
 
-> **Note**: This document is being worked on as part of ongoing efforts to split out the core specification from the individual deployment technology specifications. If will be updated as those efforts progress.
+> **Note**: This document is being worked on as part of ongoing efforts to split out the core specification from the individual deployment technology specifications. It will be updated as those efforts progress.
 
 ## Overview
 
-In order to decouple support for different deployment technologies (e.g, Helm, Compose, etc.) from Margo's core specification we have adopted the use of independent deployment technology specifications. These independent deployment technology specification allows the choice of technologies to evolve over time without impacting Margo's core specification.
+In order to decouple support for different deployment technologies (e.g, Helm, Compose, etc.) from Margo's core specification we have adopted the use of independent deployment technology specifications. These independent deployment technology specifications allow the choice of technologies to evolve over time without impacting Margo's core specification.
 
 This document provides the requirements and guidelines for people to follow when creating and contributing to deployment technology specifications. These are requirements for the specification authors to follow, not specification implementors.
 
@@ -16,7 +16,7 @@ Each deployment technology specification is responsible for defining the applica
 
 Each characteristic MUST publish a human-readable definition and MAY publish a JSON Schema. The characteristic definition MUST be published, or referenced, as part of the applicable deployment technology specification. The schema is informative to a workload fleet manager, but is normative for device suppliers claiming conformance to the characteristic if a schema is provided.
 
-Characteristics keys must be globally unique and MUST following the naming guidelines:
+Characteristics keys MUST be globally unique and following the naming guidelines:
 
 - The key name SHOULD follow the pattern `{domain}/{category}/{identifier}` or `{domain}/{identifier}`
 - The domain for all Margo community characteristics MUST be `margo.org`

@@ -7,7 +7,7 @@ The following deployment technology specifications are maintained by the Margo c
 | `margo.org/deployment/helm` | Candidate | Helm-based application packaging and deployment for Margo |  |  | [Repository](https://github.com/margo/deployment-specification-helm/blob/pre-draft/README.md) |
 | `margo.org/deployment/compose` | Candidate | Compose-based application packaging and deployment for Margo |  |  | [Repository](https://github.com/margo/deployment-specification-compose/blob/pre-draft/README.md) |
 
-## Statuses
+## States
 
 | Status | Description |
 |--------|-------------|

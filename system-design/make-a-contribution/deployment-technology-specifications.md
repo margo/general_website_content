@@ -8,7 +8,7 @@ In order to decouple support for different deployment technologies (e.g., Helm, 
 
 This document provides the requirements and guidelines for people to follow when creating and contributing to deployment technology specifications. These are requirements for the specification authors to follow, not specification implementors.
 
-## Margo Community Deployment Technology Specification Constraints
+## Specification Constraints
 
 - Deployment technology specifications MUST define the deployment technology key associated with the specification. See the [Profile Characteristics](#profile-characteristics) section below.
 - Deployment technology specifications MUST follow Margo's [Version Management Strategy](../specification/specification-version-management) for versioning, repository branching, and releases. Deployment technology specifications are versioned independently from Margo's core specification.

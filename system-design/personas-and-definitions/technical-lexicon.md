@@ -60,7 +60,7 @@ A Workload is an instance of a [Component](#component) running within a customer
 
 #### Edge Compute Device
 
-Edge Compute Devices are represented by compute hardware that runs within the customer's environment to enable the system with Margo Compliant [Workloads](#workload). Edge Compute Devices host the Margo compliant management agents, container orchestration platform, and device operating systems. Margo Edge Compute Devices are defined by the capabilities they provide within the Margo Architecture.
+Edge Compute Devices are represented by compute hardware that runs within the customer's environment to enable the system with Margo Compliant [Workloads](#workload). Edge Compute Devices host the Margo compliant management agents, container orchestration platform, and device operating systems. Margo Edge Compute Devices are defined by the characteristics they provide within the Margo Architecture.
 
 #### Workload Fleet Manager
 

@@ -4,7 +4,7 @@
 
 ## Overview
 
-In order to decouple support for different deployment technologies (e.g., Helm, Compose, etc.) from Margo's core specification, we have adopted the use of independent deployment technology specifications. These independent deployment technology specifications allow the choice of technologies to evolve over time without impacting Margo's core specification.
+In order to decouple support for different deployment technologies (e.g., Helm, Compose, etc.) from Margo's core specification, we have adopted the use of independent deployment technology specifications. These independent deployment technology specifications allow the choice of technologies to evolve without impacting Margo's core specification.
 
 This document provides the requirements and guidelines for people to follow when creating and contributing to deployment technology specifications. These are requirements for the specification authors to follow, not specification implementors.
 
@@ -16,10 +16,10 @@ This document provides the requirements and guidelines for people to follow when
 - Deployment technology specification MUST define how workload targets are expected to deploy the workloads and highlight any special constraints needing to be followed by either the application or workload target suppliers.
 - Deployment technology specification MUST rely only on the APIs defined in the Margo core specification and MUST NOT introduce any new APIs or attempt to modify existing APIs.
 - Deployment technology specifications MUST rely only on workload fleet manager suppliers implementing logic defined in the Margo core specification only and MUST NOT require workload fleet manager suppliers to implement logic specific to the deployment technology specification.
-- Deployment technology specifications MUST NOT relay on workload fleet manger suppliers understanding characteristic schemas defined as part of the specification.
-- Deployment technology specification MAY define their own profile characteristics or reference common characteristics defined by the Margo community.
+- Deployment technology specifications MUST NOT rely on workload fleet manager suppliers understanding characteristic schemas defined as part of the specification.
+- Deployment technology specifications MAY define their own profile characteristics or reference common characteristics defined by the Margo community.
 
-> **Note:** We are interested hearing about any uses cases where there is a desire to included additional characteristic properties that are intended for workload fleet managers to use if a workload fleet manager choose to tightly couple their implementation to a deployment technology specification.
+> **Note:** We are interested in hearing about any use cases where there is a desire to include additional characteristic properties that are intended for workload fleet managers to use if a workload fleet manager chooses to tightly couple their implementation to a deployment technology specification.
 
 ## Governance
 

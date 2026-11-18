@@ -36,19 +36,19 @@ sequenceDiagram
     participant frontend as Workload Fleet Manager Frontend
     participant fleetmgr as Workload Fleet Manager
     participant registry as Application Registry
-        
+
     autonumber
-    
+
     EndUser->>frontend: Visits Application Catalog
     frontend->>fleetmgr: Get list of available application packages
-    
+
     alt
       fleetmgr ->> registry: Get application descriptions from each known application registry.
     else
       fleetmgr ->> fleetmgr: Get application descriptions for all cached applications.
     end
     fleetmgr->>frontend: Return list of application descriptions
-    
+
     frontend ->> frontend: Read all application descriptions' 'metadata' element
     frontend ->> EndUser: Show UI with list of applications
     EndUser->>frontend: Select application / components to install
@@ -56,7 +56,7 @@ sequenceDiagram
     frontend -->> EndUser: Show UI to fill application configuration
     EndUser ->> frontend: fills application configuration
     frontend ->> fleetmgr: Create 'ApplicationDeployment' definition
-    
+
 ```
 
 1. An end user visits the [application catalog](../personas-and-definitions/technical-lexicon.md#application-catalog) of a Workload Fleet Manager Frontend.

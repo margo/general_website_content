@@ -15,23 +15,23 @@ As of now this stage is out of scope in the Margo specification and not being co
 
 This section does not declare terminology, that is the task of the [Technical Lexicon](technical-lexicon), but rather tries to scope some of the terms to the above mentioned stages.
 
-#### Application
+### Application
 
 The term [application][application] applies to all stages.
 
-#### Workload
+### Workload
 
 The term [Workload][workload] applies only to [running software](#2-software-deployment).
 
 [Workloads][workload] are the result of deploying [Components][component].
 
-#### Component
+### Component
 
 The term [Component][component] applies to the resources available in [packaged software](#1-software-packaging) that get deployed as [Workloads][workload].
 
 Some [providers][provider-model] might support that multiple [Workload][workload] replicas are deployed from a single [Component][component].
 
-[Components][component] are made available over [Component Registrys][component-registry].
+[Components][component] are made available over [Component Registries][component-registry].
 
 [Components][component] might have different shapes depending on their type and on which stage is being considered:
 
